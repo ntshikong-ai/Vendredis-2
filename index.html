@@ -2,85 +2,186 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Excellentia RDC — Test blanc | By N.T</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Excellentia RDC — Grand Test Final | By N.T</title>
 
 <style>
 *{box-sizing:border-box}
 body{
- margin:0;background:#07111f;color:#f4f7fb;
- font-family:Arial,sans-serif;min-height:100vh
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#07111f;
+color:#f5f7fa;
 }
-.container{max-width:1000px;margin:auto;padding:20px}
+.container{
+max-width:1050px;
+margin:auto;
+padding:20px;
+}
 .card{
- background:#0d1b2d;border:1px solid #263b55;border-radius:18px;
- padding:25px;box-shadow:0 15px 40px #0008
+background:#0d1b2a;
+border:1px solid #263b55;
+border-radius:18px;
+padding:25px;
+margin-top:20px;
+box-shadow:0 12px 35px #0008;
 }
-h1{font-size:clamp(28px,6vw,48px)}
+h1{font-size:38px}
 h2{color:#56b4ff}
-.muted{color:#aab7c8;line-height:1.6}
+h3{color:#8ecfff}
+p{line-height:1.7}
+.muted{color:#aebdce}
 .badge{
- display:inline-block;border:1px solid #56b4ff;color:#56b4ff;
- padding:7px 12px;border-radius:20px;font-size:13px
+display:inline-block;
+padding:7px 12px;
+border:1px solid #56b4ff;
+border-radius:20px;
+color:#56b4ff;
+font-size:13px;
 }
 input{
- width:100%;padding:15px;margin:10px 0 15px;
- border-radius:10px;border:1px solid #304866;
- background:#081525;color:white;font-size:16px
+width:100%;
+padding:14px;
+border-radius:10px;
+border:1px solid #304861;
+background:#07111f;
+color:white;
+font-size:17px;
+margin:10px 0 15px;
 }
 button{
- border:0;border-radius:10px;padding:13px 18px;
- background:#56b4ff;color:#03101d;font-weight:bold;
- cursor:pointer;margin:5px
+border:0;
+border-radius:10px;
+padding:13px 17px;
+margin:5px;
+font-weight:bold;
+cursor:pointer;
+background:#56b4ff;
+color:#03101b;
 }
-button.secondary{background:#1b3049;color:white;border:1px solid #38516d}
-button.danger{background:#ff6675}
+button.secondary{
+background:#172b42;
+color:white;
+border:1px solid #304861;
+}
+button.danger{
+background:#d94c5c;
+color:white;
+}
+button:disabled{
+opacity:.45;
+cursor:not-allowed;
+}
 .hidden{display:none!important}
-.row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
-.timer{font-size:25px;font-weight:bold}
-.timer.danger{color:#ff6675}
-.progress{
- height:9px;background:#06101d;border-radius:10px;
- overflow:hidden;margin:12px 0
-}
-.progress div{height:100%;background:#56b4ff;width:0}
-.question{font-size:21px;line-height:1.55;margin:25px 0}
-.option{
- display:block;width:100%;text-align:left;
- background:#112740;color:white;border:1px solid #2c4561;
- margin:10px 0;padding:15px;border-radius:12px
-}
-.option:hover,.option.selected{background:#173b5d;border-color:#56b4ff}
-.reading{
- background:#081525;border:1px solid #304866;
- padding:20px;border-radius:12px;
- line-height:1.8;white-space:pre-wrap;
- max-height:55vh;overflow:auto
-}
 .notice{
- padding:15px;background:#0a1d31;
- border-left:4px solid #56b4ff;border-radius:7px;
- line-height:1.6
+background:#0a2035;
+border-left:4px solid #56b4ff;
+padding:14px;
+border-radius:8px;
+margin:15px 0;
 }
-table{width:100%;border-collapse:collapse}
-td,th{padding:10px;border-bottom:1px solid #29405b;text-align:left}
+.row{
+display:flex;
+gap:10px;
+align-items:center;
+flex-wrap:wrap;
+}
+.between{
+justify-content:space-between;
+}
+.timer{
+font-size:27px;
+font-weight:bold;
+font-variant-numeric:tabular-nums;
+}
+.timer.warn{color:#ffd45c}
+.timer.danger{color:#ff5e6d}
+.progress{
+height:9px;
+background:#07111f;
+border-radius:20px;
+overflow:hidden;
+margin:15px 0;
+}
+.progress div{
+height:100%;
+background:#56b4ff;
+width:0%;
+}
+.question{
+font-size:21px;
+line-height:1.55;
+margin:20px 0;
+}
+.meta{
+color:#aebdce;
+font-size:14px;
+}
+.option{
+display:block;
+width:100%;
+text-align:left;
+background:#11263d;
+color:white;
+border:1px solid #304861;
+margin:10px 0;
+padding:16px;
+font-size:16px;
+}
+.option:hover{border-color:#56b4ff}
+.option.selected{
+border-color:#56b4ff;
+background:#173b5b;
+}
+.reading{
+white-space:pre-wrap;
+line-height:1.85;
+background:#071522;
+border:1px solid #304861;
+border-radius:12px;
+padding:20px;
+max-height:55vh;
+overflow:auto;
+}
+.readingTimer{
+font-size:30px;
+font-weight:bold;
+}
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+}
+th,td{
+border-bottom:1px solid #304861;
+padding:10px;
+text-align:left;
+vertical-align:top;
+}
 th{color:#56b4ff}
 .modal{
- position:fixed;inset:0;background:#000c;
- display:none;align-items:center;justify-content:center;
- padding:20px;z-index:20
+position:fixed;
+inset:0;
+background:#000c;
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+z-index:100;
 }
 .modal.show{display:flex}
 .modalBox{
- width:min(900px,100%);max-height:90vh;
- overflow:auto;background:#0d1b2d;
- border:1px solid #38516d;border-radius:18px;padding:20px
+background:#0d1b2a;
+border:1px solid #304861;
+border-radius:16px;
+max-width:900px;
+width:100%;
+max-height:90vh;
+padding:20px;
 }
-@media(max-width:600px){
- .container{padding:10px}
- .card{padding:17px}
- .question{font-size:18px}
-}
+.error{color:#ff7180}
+.correct{color:#58d58a}
+.small{font-size:13px}
 </style>
 </head>
 
@@ -90,109 +191,131 @@ th{color:#56b4ff}
 
 <!-- ACCUEIL -->
 <section id="home" class="card">
- <span class="badge">EXCELLENTIA RDC • PRÉPARATION INTENSIVE</span>
 
- <h1>TEST BLANC — 100 QUESTIONS</h1>
+<span class="badge">EXCELLENTIA RDC • GRAND TEST FINAL</span>
 
- <h2>By N.T</h2>
+<h1>100 Questions — By N.T</h1>
 
- <p><strong>Bonne chance de la part de Nathan.</strong></p>
+<h2>Préparation intensive</h2>
 
- <p class="muted">
-  100 questions très difficiles :
-  25 Culture générale,
-  25 Français,
-  25 English,
-  25 Mathématiques.
- </p>
+<p>
+<strong>Bonne chance de la part de Nathan.</strong>
+</p>
 
- <div class="notice">
-  <strong>Règles :</strong><br>
-  • Une seule réponse correcte par question.<br>
-  • 1 minute par question.<br>
-  • Avant le français : texte + 15 minutes de lecture.<br>
-  • Avant l'anglais : texte + 15 minutes de lecture.<br>
-  • La lecture peut être sautée immédiatement.<br>
-  • Une fois les questions commencées, le minuteur de lecture est arrêté définitivement.<br>
-  • Le texte reste consultable pendant les questions sans relancer le minuteur.<br>
-  • Quitter la page pendant le test verrouille la session.
- </div>
+<p>
+Ce test comporte exactement <strong>100 questions</strong> :
+25 de culture générale, 25 de français, 25 d'anglais et 25 de mathématiques.
+Des questions de logique sont intégrées dans plusieurs parties.
+</p>
 
- <br>
+<div class="notice">
+<strong>Règles principales :</strong><br>
+• 1 minute par question.<br>
+• Une seule réponse correcte.<br>
+• Français et anglais commencent chacun par une lecture facultative de 15 minutes.<br>
+• Le participant peut passer immédiatement la lecture.<br>
+• Pendant les questions de compréhension, le texte peut être rouvert sans redémarrer de chrono de lecture.<br>
+• Le chrono de la question continue pendant la consultation du texte.<br>
+• Changer d'onglet, minimiser ou quitter la page pendant le test entraîne la disqualification.
+</div>
 
- <label><strong>Nom du participant</strong></label>
- <input id="name" placeholder="Ex. Nathan Tshikong Kabash">
+<label><strong>Nom du participant</strong></label>
 
- <button onclick="startTest()">COMMENCER LE TEST</button>
+<input id="nameInput" maxlength="60" placeholder="Entrez votre nom">
+
+<button onclick="startTest()">Commencer le test</button>
+
+<p class="muted small">
+Le système anti-sortie fonctionne côté navigateur. Il ne peut pas empêcher
+toutes les méthodes externes de contournement utilisant un autre appareil
+ou une modification du code.
+</p>
+
 </section>
 
 
 <!-- LECTURE -->
-<section id="reading" class="card hidden">
+<section id="readingScreen" class="card hidden">
 
- <span id="readingSubject" class="badge"></span>
+<div class="row between">
+<div>
+<span class="badge" id="readingSubject"></span>
+<h2 id="readingTitle"></h2>
+</div>
 
- <h1 id="readingTitle"></h1>
+<div>
+<div class="meta">Temps de lecture restant</div>
+<div id="readingTimer" class="readingTimer">15:00</div>
+</div>
+</div>
 
- <div class="row">
-  <strong>Temps de lecture</strong>
-  <span id="readingTimer" class="timer">15:00</span>
- </div>
+<div class="notice">
+Tu peux lire pendant 15 minutes maximum.
+Tu peux également commencer les questions immédiatement avec
+<strong>« Passer la lecture »</strong>.
+</div>
 
- <div class="progress">
-  <div id="readingProgress"></div>
- </div>
+<div id="readingText" class="reading"></div>
 
- <div id="readingText" class="reading"></div>
-
- <br>
-
- <div class="notice">
-  Vous pouvez lire pendant 15 minutes ou commencer immédiatement.
-  Dès que vous commencez les questions, le minuteur de lecture est arrêté
-  et ne redémarre plus.
- </div>
-
- <button onclick="skipReading()">SAUTER ET COMMENCER</button>
- <button class="secondary" onclick="skipReading()">COMMENCER MAINTENANT</button>
+<div class="row">
+<button onclick="skipReading()">Passer la lecture →</button>
+</div>
 
 </section>
 
 
-<!-- TEST -->
-<section id="test" class="card hidden">
+<!-- QUIZ -->
+<section id="quizScreen" class="hidden">
 
- <div class="row">
+<div class="card">
 
-  <div>
-   <span id="subject" class="badge"></span>
-   <p id="participant" class="muted"></p>
-  </div>
+<div class="row between">
 
-  <div id="questionTimer" class="timer">01:00</div>
+<div>
+<span class="badge" id="subjectBadge"></span>
+<div class="meta" id="nameDisplay"></div>
+</div>
 
- </div>
+<div id="questionTimer" class="timer">01:00</div>
 
- <div class="progress">
-  <div id="testProgress"></div>
- </div>
+</div>
 
- <div class="row">
-  <span id="counter"></span>
-  <span id="textButton"></span>
- </div>
+<div class="progress">
+<div id="progressBar"></div>
+</div>
 
- <div id="question"></div>
+<div class="row between">
+<div class="meta" id="questionCounter"></div>
+<div id="textButton"></div>
+</div>
 
- <div class="row">
-  <button class="secondary" id="previous" onclick="previousQuestion()">
-   ← Précédente
-  </button>
+<div id="questionArea"></div>
 
-  <button onclick="nextQuestion()">
-   Valider / Suivante →
-  </button>
- </div>
+<div class="row between">
+
+<button class="secondary" id="previousButton" onclick="previousQuestion()">
+← Précédente
+</button>
+
+<button id="nextButton" onclick="nextQuestion()">
+Valider / suivante →
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SESSION BLOQUÉE -->
+<section id="locked" class="card hidden">
+
+<span class="badge">SESSION INVALIDÉE</span>
+
+<h1>Test interrompu</h1>
+
+<p id="lockMessage"></p>
 
 </section>
 
@@ -200,38 +323,27 @@ th{color:#56b4ff}
 <!-- RÉSULTATS -->
 <section id="results" class="card hidden"></section>
 
-
-<!-- VERROUILLAGE -->
-<section id="locked" class="card hidden">
-
- <span class="badge">SESSION VERROUILLÉE</span>
-
- <h1>Test interrompu</h1>
-
- <p id="lockReason"></p>
-
- <p>
-  La session ne peut plus être reprise.
- </p>
-
-</section>
-
 </div>
 
 
 <!-- MODAL TEXTE -->
-<div id="modal" class="modal">
+<div id="textModal" class="modal">
 
- <div class="modalBox">
+<div class="modalBox">
 
-  <div class="row">
-   <h2 id="modalTitle"></h2>
-   <button class="secondary" onclick="closeText()">Fermer</button>
-  </div>
+<div class="row between">
+<h2 id="modalTitle"></h2>
+<button class="secondary" onclick="closeText()">Fermer</button>
+</div>
 
-  <div id="modalText" class="reading"></div>
+<p class="muted">
+Le chrono de lecture ne fonctionne plus ici.
+Le chrono de la question actuelle continue normalement.
+</p>
 
- </div>
+<div id="modalContent" class="reading"></div>
+
+</div>
 
 </div>
 
@@ -242,633 +354,881 @@ th{color:#56b4ff}
    TEXTES
 ========================================================= */
 
-const TEXT_FR = `
-Dans une société où les informations circulent rapidement,
-la quantité de données disponibles ne garantit pas nécessairement
-la qualité des décisions prises à partir de ces données.
+const texts={
 
-Une information répétée plusieurs fois peut donner une impression
-de certitude sans pour autant constituer une preuve. Il faut donc
-examiner sa source, son contexte, la manière dont elle a été produite
-et les éventuelles limites de son interprétation.
+francais:{
+title:"Français — Compréhension de texte",
 
-Cette exigence est particulièrement importante lorsqu'il s'agit
-d'analyser une situation économique ou comptable. Deux phénomènes
-peuvent évoluer simultanément sans que l'un soit nécessairement
-la cause de l'autre. Une corrélation ne suffit donc pas, à elle seule,
-à démontrer une causalité.
+text:`Dans toute démarche intellectuelle sérieuse, la précision du raisonnement
+dépend autant de la qualité des informations que de la manière dont elles
+sont interprétées. Une affirmation répétée plusieurs fois ne devient pas
+nécessairement vraie. Il faut distinguer le fait vérifiable, l'interprétation
+et l'hypothèse.
 
-Une comptabilité fiable repose également sur des éléments vérifiables :
-pièces justificatives, classification cohérente, enregistrements
-réguliers et contrôles appropriés. Lorsque ces éléments sont absents,
-une conclusion peut sembler logique tout en reposant sur une base fragile.
+Cette distinction possède une importance particulière dans la gestion.
+Lorsqu'un responsable observe qu'une entreprise a augmenté ses bénéfices
+après une décision donnée, il serait imprudent de conclure immédiatement
+que cette décision est la seule cause du résultat. D'autres facteurs peuvent
+avoir changé simultanément : le prix des matières premières, la demande,
+la concurrence, la fiscalité ou encore la productivité.
 
-Cependant, l'incertitude ne signifie pas qu'aucune décision ne puisse
-être prise. Une décision provisoire peut être rationnelle lorsqu'elle
-est fondée sur les meilleures informations disponibles et qu'elle
-reste susceptible d'être révisée.
+La rigueur ne consiste pourtant pas à refuser toute décision jusqu'à
+l'obtention d'une certitude absolue. Dans de nombreuses situations,
+la décision doit être prise alors que certaines informations demeurent
+incomplètes. Il devient alors essentiel de connaître les hypothèses sur
+lesquelles repose le choix effectué et de pouvoir le réviser lorsque de
+nouvelles informations apparaissent.
 
-La rigueur consiste ainsi moins à prétendre posséder une certitude
-absolue qu'à distinguer clairement les faits, les interprétations
-et les hypothèses. Une bonne décision doit être proportionnée
-à la qualité des informations disponibles.
-`;
+Cette attitude demande également de savoir reconnaître ses propres erreurs.
+Une erreur correctement analysée devient une source d'apprentissage.
+Elle permet d'identifier une règle mal comprise, une confusion de notions,
+une lecture trop rapide ou une conclusion tirée sans preuve suffisante.
 
+Ainsi, la véritable rigueur intellectuelle n'est pas l'accumulation de
+connaissances isolées. Elle consiste à savoir mobiliser ces connaissances
+au moment approprié, à vérifier les relations entre les idées et à accepter
+de modifier une conclusion lorsque les faits l'exigent.`
+},
 
-const TEXT_EN = `
-Success in a difficult examination is rarely the result of memorising
-large quantities of information without understanding them.
+anglais:{
+title:"English — Reading comprehension",
 
-A student may know a grammatical rule and still use it incorrectly
-during an examination because the question is read too quickly,
-because several possibilities appear similar, or because pressure
-reduces attention to small details.
+text:`A serious student does not improve simply by answering a large number
+of questions. Improvement depends on what happens after an answer has been
+given. If an answer is wrong, the student should identify the reason for the
+mistake and determine what evidence would have led to the correct answer.
 
-For this reason, effective preparation should not consist only of
-collecting high scores. Mistakes should also be recorded and analysed.
-When a student understands why an answer was wrong, the mistake can
-become useful information for future preparation.
+Time management is another important part of examination preparation.
+A difficult question may deserve careful thought, but spending too much
+time on one problem can reduce the time available for other questions.
+An effective candidate therefore learns to recognize when a question should
+be temporarily left and revisited later, whenever the examination rules
+allow this strategy.
 
-Time management is another important part of examination strategy.
-Spending several minutes on one difficult question may reduce the
-time available for questions that could have been answered correctly.
-Temporarily leaving a difficult problem is therefore not necessarily
-a sign of weakness. If the examination rules allow it, returning to
-the problem later can be more efficient.
+Knowledge also becomes more useful when it is connected. Learning grammar
+as a collection of isolated rules may help with simple exercises, but more
+advanced questions require the learner to understand why a particular form
+is appropriate in a particular context.
 
-Progress between two practice tests should also be interpreted carefully.
-A higher score is meaningful only when the testing conditions are
-reasonably similar. Differences in difficulty, time limits, question
-types and concentration can affect the result.
+Reading comprehension follows the same principle. A reader should not rely
+only on individual words. The meaning of a sentence depends on its context,
+its logical relationship with surrounding sentences and the purpose of
+the author.
 
-Durable preparation combines knowledge, repeated practice,
-careful reading, error analysis and disciplined time management.
-The objective is not simply to answer quickly, but to recognise
-what each question requires and to choose the answer that is best
-supported by the information available.
-`;
+Finally, progress should be measured carefully. A higher score on one test
+is encouraging evidence of improvement, but it does not guarantee a specific
+future result. Reliable preparation combines repeated practice, active
+recall, error analysis, time management and attention to precise wording.`
+}
+
+};
 
 
 /* =========================================================
    QUESTIONS
 ========================================================= */
 
-const Q = (subject,question,a,b,c,d,correct) => ({
- subject,
- question,
- options:[a,b,c,d],
- correct
-});
-
-
-const QUESTIONS = [
-
-/* =========================================================
-   CULTURE GÉNÉRALE — 1 À 25
-========================================================= */
-
-Q("Culture générale",
-"Quelle date correspond à l'indépendance de la République du Congo vis-à-vis de la Belgique ?",
-"30 juin 1960","17 mai 1997","24 avril 1990","1er août 1964",0),
-
-Q("Culture générale",
-"Quelle ville est le chef-lieu du Haut-Katanga ?",
-"Kolwezi","Lubumbashi","Likasi","Kamina",1),
-
-Q("Culture générale",
-"Quel est le chef-lieu du Lualaba ?",
-"Kolwezi","Lubumbashi","Kalemie","Kamina",0),
-
-Q("Culture générale",
-"Quel est le chef-lieu du Haut-Lomami ?",
-"Kamina","Kolwezi","Kindu","Kananga",0),
-
-Q("Culture générale",
-"Quel est le chef-lieu du Tanganyika ?",
-"Kalemie","Bunia","Uvira","Kisangani",0),
-
-Q("Culture générale",
-"Quel est le chef-lieu du Kasaï-Oriental ?",
-"Kananga","Mbuji-Mayi","Tshikapa","Kabinda",1),
-
-Q("Culture générale",
-"Combien de provinces compte actuellement la RDC, en incluant Kinshasa ?",
-"24","25","26","27",2),
-
-Q("Culture générale",
-"La Conférence de Berlin sur l'Afrique s'est tenue principalement en :",
-"1870–1871","1884–1885","1898–1899","1905–1906",1),
-
-Q("Culture générale",
-"L'État indépendant du Congo fut associé historiquement à :",
-"Léopold II","Napoléon III","Winston Churchill","Jules Ferry",0),
-
-Q("Culture générale",
-"Le terme « cuprifère » signifie principalement :",
-"Qui contient du cuivre","Qui contient du fer","Qui contient de l'or","Qui contient du charbon",0),
-
-Q("Culture générale",
-"Lequel est une langue nationale de la RDC ?",
-"Anglais","Tshiluba","Portugais","Espagnol",1),
-
-Q("Culture générale",
-"Quelle est la langue officielle de la RDC ?",
-"Swahili","Lingala","Français","Tshiluba",2),
-
-Q("Culture générale",
-"Quel fleuve traverse la RDC et se jette dans l'océan Atlantique ?",
-"Nil","Niger","Congo","Zambèze",2),
-
-Q("Culture générale",
-"Quelle province a pour chef-lieu Isiro ?",
-"Haut-Uele","Bas-Uele","Ituri","Tshopo",0),
-
-Q("Culture générale",
-"Quelle province a pour chef-lieu Kisangani ?",
-"Tshopo","Ituri","Haut-Uele","Maniema",0),
-
-Q("Culture générale",
-"Une inflation correspond à :",
-"Une baisse générale des prix","Une hausse générale et durable des prix",
-"Une hausse unique d'un produit","Une diminution de la masse monétaire",1),
-
-Q("Culture générale",
-"Une situation combinant stagnation économique et inflation est appelée :",
-"Déflation","Stagflation","Expansion","Désinflation",1),
-
-Q("Culture générale",
-"En comptabilité, la partie double signifie que :",
-"Chaque opération est enregistrée uniquement au débit",
-"Chaque opération affecte au moins deux comptes avec égalité des débits et crédits",
-"Chaque compte possède deux soldes",
-"Le résultat est toujours nul",1),
-
-Q("Culture générale",
-"Une immobilisation corporelle est notamment :",
-"Une machine utilisée durablement par l'entreprise",
-"Une dette fournisseur","Une vente comptant","Une charge de personnel",0),
-
-Q("Culture générale",
-"Le chiffre d'affaires correspond principalement :",
-"Aux ventes réalisées par l'entreprise",
-"Au bénéfice net uniquement","Aux dettes","Au capital social uniquement",0),
-
-Q("Culture générale",
-"Un coût d'opportunité représente :",
-"Le coût comptable d'une facture",
-"La valeur de la meilleure possibilité abandonnée lors d'un choix",
-"Une taxe obligatoire","Une perte toujours financière",1),
-
-Q("Culture générale",
-"Un échantillon biaisé est un échantillon :",
-"Parfaitement représentatif","Influencé par une sélection qui déforme la population étudiée",
-"Obligatoirement très grand","Toujours aléatoire",1),
-
-Q("Culture générale",
-"Un père regarde un portrait. Il dit : « Je n'ai ni frère ni sœur, mais le père de cet homme est le fils de mon père. » Qui est sur le portrait ?",
-"Son frère","Son fils","Son père","Lui-même",1),
-
-Q("Culture générale",
-"Tous les comptables sont méthodiques. Certains étudiants sont comptables. Quelle conclusion est nécessairement vraie ?",
-"Tous les étudiants sont méthodiques",
-"Certains étudiants sont méthodiques",
-"Aucun étudiant n'est méthodique",
-"Tous les méthodiques sont comptables",1),
-
-Q("Culture générale",
-"Le cuivre est généralement considéré comme une ressource :",
-"Renouvelable à l'échelle humaine","Non renouvelable à l'échelle humaine",
-"Inépuisable","Biologique",1),
-
-
-/* =========================================================
-   FRANÇAIS — 26 À 50
-========================================================= */
-
-Q("Français",
-"Selon le texte, pourquoi une information répétée ne devient-elle pas automatiquement une preuve ?",
-"Parce que toute information est fausse",
-"Parce qu'il faut examiner sa source, son contexte et sa production",
-"Parce que seules les opinions sont vérifiables",
-"Parce que les hypothèses sont toujours supérieures aux faits",1),
-
-Q("Français",
-"Pourquoi faut-il distinguer corrélation et causalité ?",
-"Une corrélation ne prouve pas nécessairement qu'un phénomène cause l'autre",
-"La causalité n'existe jamais",
-"Une corrélation est toujours une erreur",
-"La causalité concerne uniquement la comptabilité",0),
-
-Q("Français",
-"Selon le texte, une comptabilité fiable exige notamment :",
-"Une impression générale",
-"Des pièces justificatives, une classification cohérente et des contrôles",
-"La suppression des données contradictoires",
-"L'absence totale d'interprétation",1),
-
-Q("Français",
-"Que signifie l'idée selon laquelle une décision doit être proportionnée à la qualité des informations disponibles ?",
-"Il faut toujours attendre une certitude absolue",
-"Le degré de certitude disponible doit être pris en compte",
-"Une décision importante ne nécessite aucune information",
-"Toute décision doit être évitée",1),
-
-Q("Français",
-"Quand une décision provisoire peut-elle être rationnelle selon le texte ?",
-"Quand ses hypothèses sont cachées",
-"Quand elle repose sur les meilleures informations disponibles et peut être révisée",
-"Quand aucune information n'existe",
-"Quand elle est définitive",1),
-
-Q("Français",
-"Dans « à condition que ses hypothèses soient explicites et qu'elle puisse être révisée », « elle » désigne :",
-"L'information","La corrélation","La décision provisoire","La comptabilité",2),
-
-Q("Français",
-"Quelle idée résume le mieux le texte ?",
-"Il faut toujours refuser de décider",
-"La rigueur consiste notamment à distinguer faits, interprétations et hypothèses",
-"Les chiffres sont toujours certains",
-"La comptabilité suffit à résoudre toute incertitude",1),
-
-Q("Français",
-"Quelle phrase respecte l'accord correct du participe passé ?",
-"Les lettres qu'elle a écrit",
-"Les lettres qu'elle a écrites",
-"Les lettres qu'elle a écritees",
-"Les lettres qu'elle a écrits",1),
-
-Q("Français",
-"Complétez : « Il faut que tu ___ la vérité. »",
-"dis","dises","disses","diras",1),
-
-Q("Français",
-"Quel temps est employé dans « Lorsqu'il eut terminé, il partit » ?",
-"Plus-que-parfait","Passé antérieur","Passé composé","Imparfait",1),
-
-Q("Français",
-"Dans « Je doute qu'il vienne », le verbe « vienne » est au :",
-"Indicatif présent","Subjonctif présent","Conditionnel présent","Impératif",1),
-
-Q("Français",
-"Quel est le pluriel correct de « coffre-fort » ?",
-"coffres-forts","coffre-forts","coffres-fort","coffre-fort",0),
-
-Q("Français",
-"Quel est le pluriel correct de « arc-en-ciel » ?",
-"arc-en-ciels","arcs-en-ciel","arcs-en-ciels","arc-en-ciel",2),
-
-Q("Français",
-"Quelle phrase est correctement écrite ?",
-"Quelque soit son choix",
-"Quel que soit son choix",
-"Quelques soit son choix",
-"Quelque soient son choix",1),
-
-Q("Français",
-"Dans « Les élèves dont je parle sont sérieux », « dont » est :",
-"Pronom relatif","Déterminant","Adverbe","Conjonction de coordination",0),
-
-Q("Français",
-"Dans « Je lui donne le livre », « lui » est :",
-"COD","COI","COS","Sujet",1),
-
-Q("Français",
-"Dans « Il prête son livre à Paul », « à Paul » est :",
-"COD","COI","COS","Attribut",2),
-
-Q("Français",
-"Quelle phrase contient une proposition subordonnée circonstancielle de concession ?",
-"Je viens parce qu'il m'appelle",
-"Bien qu'il soit fatigué, il travaille",
-"Je sais qu'il viendra",
-"Il travaille pour réussir",1),
-
-Q("Français",
-"Quelle figure de style trouve-t-on dans « Cette obscure clarté » ?",
-"Comparaison","Oxymore","Hyperbole","Métonymie",1),
-
-Q("Français",
-"Dans « Il court comme un lièvre », quelle figure de style apparaît ?",
-"Métaphore","Comparaison","Personnification","Litote",1),
-
-Q("Français",
-"Quel homophone convient : « Il ___ son travail avant midi. »",
-"fait","fais","fée","faisait",0),
-
-Q("Français",
-"Quelle phrase est correcte ?",
-"Je me suis rendu compte de mon erreur",
-"Je me suis rendue compte de mon erreur",
-"Je me suis rendre compte de mon erreur",
-"Je me suis rends compte de mon erreur",0),
-
-Q("Français",
-"Quel mot est correctement orthographié ?",
-"Acquérir","Aquérir","Acquérirre","Acuérir",0),
-
-Q("Français",
-"Lequel est un adverbe ?",
-"Rapidement","Rapide","Rapidité","Rapider",0),
-
-Q("Français",
-"Dans « Cette décision paraît raisonnable », « raisonnable » est :",
-"COD","COI","Attribut du sujet","Complément circonstanciel",2),
-
-
-/* =========================================================
-   ENGLISH — 51 À 75
-========================================================= */
-
-Q("English",
-"According to the passage, why can a student know a rule and still use it incorrectly?",
-"Rules cannot be learned",
-"The question may be read too quickly under pressure",
-"Examinations never require reasoning",
-"Students cannot read twice",1),
-
-Q("English",
-"What should students do with their mistakes?",
-"Ignore them",
-"Record and analyse them",
-"Delete them",
-"Repeat them without correction",1),
-
-Q("English",
-"Why can spending several minutes on one difficult question be dangerous?",
-"It always makes the answer wrong",
-"It may reduce the time available for other questions",
-"It stops the examination",
-"It makes easy questions harder",1),
-
-Q("English",
-"Temporarily leaving a difficult problem does NOT mean that the student should :",
-"Return to it later if permitted",
-"Manage time strategically",
-"Guess carelessly",
-"Recognise the value of easier questions",2),
-
-Q("English",
-"Why should progress between two tests be interpreted carefully?",
-"Scores are useless",
-"Testing conditions may be different",
-"Tests cannot contain mistakes",
-"Students should never compare scores",1),
-
-Q("English",
-"The word « durable » is closest in meaning to :",
-"temporary","long-lasting","accidental","uncertain",1),
-
-Q("English",
-"Which combination is presented as part of durable preparation?",
-"Luck and guessing",
-"Knowledge, practice, error analysis and attention to wording",
-"Silence and memorisation only",
-"Avoiding difficult questions",1),
-
-Q("English",
-"Choose the correct sentence.",
-"She don't like mathematics.",
-"She doesn't likes mathematics.",
-"She doesn't like mathematics.",
-"She not like mathematics.",2),
-
-Q("English",
-"Choose the correct form: « They ___ here since 2020. »",
-"live","lived","have lived","are living",2),
-
-Q("English",
-"Choose the correct answer: « I have known him ___ five years. »",
-"since","for","by","until",1),
-
-Q("English",
-"Choose the correct answer: « She has lived here ___ 2021. »",
-"for","since","until","by",1),
-
-Q("English",
-"Choose the correct form: « When I arrived, they ___ dinner. »",
-"have","had","were having","are having",2),
-
-Q("English",
-"Choose the correct passive form: « People speak English worldwide. »",
-"English speaks worldwide",
-"English is spoken worldwide",
-"English was spoken worldwide",
-"English has spoken worldwide",1),
-
-Q("English",
-"Choose the correct passive form: « They built the bridge in 2010. »",
-"The bridge built in 2010",
-"The bridge was built in 2010",
-"The bridge is built in 2010",
-"The bridge has build in 2010",1),
-
-Q("English",
-"If I had more time, I ___ more.",
-"study","will study","would study","studied",2),
-
-Q("English",
-"If she had studied harder, she ___ the exam.",
-"passes","would pass","would have passed","will pass",2),
-
-Q("English",
-"You ___ obey the instructions.",
-"must","might","would","could have",0),
-
-Q("English",
-"He ___ be at home; the lights are on.",
-"must","can't","shouldn't","needn't",0),
-
-Q("English",
-"Choose the correct comparative.",
-"This exercise is more difficult than that one.",
-"This exercise is difficulter than that one.",
-"This exercise is most difficult than that one.",
-"This exercise is more difficulty than that one.",0),
-
-Q("English",
-"What does « give up » mean?",
-"Continue","Abandon","Increase","Discover",1),
-
-Q("English",
-"What does « find out » mean?",
-"Discover","Lose","Destroy","Refuse",0),
-
-Q("English",
-"Choose the correct article: « He is ___ honest man. »",
-"a","an","the","no article",1),
-
-Q("English",
-"Choose the correct pronoun: « This book belongs to Sarah. It is ___. »",
-"her","hers","she","herself",1),
-
-Q("English",
-"Choose the correct sentence.",
-"I have never seen such a thing.",
-"I never have seen such thing.",
-"I have never saw such a thing.",
-"I never seen such a thing.",0),
-
-Q("English",
-"Choose the correct question.",
-"How long have you been studying English?",
-"How long are you studying English?",
-"How long did you been studying English?",
-"How long have you study English?",0),
-
-
-/* =========================================================
-   MATHS — 76 À 100
-========================================================= */
-
-Q("Mathématiques",
-"Quel est l'ensemble de définition de f(x)=√(2x−6) ?",
-"]−∞;3[","[3;+∞[","]3;+∞[","R",1),
-
-Q("Mathématiques",
-"Quel est l'ensemble de définition de f(x)=1/(x−4) ?",
-"R","R\\{4}","[4;+∞[","R\\{-4}",1),
-
-Q("Mathématiques",
-"Quel est l'ensemble de définition de f(x)=log₂(x−1) ?",
-"R","[1;+∞[","]1;+∞[","]−∞;1[",2),
-
-Q("Mathématiques",
-"Si f(x)=2x+1 et g(x)=x², alors (g∘f)(x) vaut :",
-"2x²+1","(2x+1)²","2x²+x","x²+1",1),
-
-Q("Mathématiques",
-"Une fonction f est paire si :",
-"f(−x)=−f(x)","f(−x)=f(x)","f(x)=0","f(x)=x",1),
-
-Q("Mathématiques",
-"Une fonction f est impaire si :",
-"f(−x)=f(x)","f(−x)=−f(x)","f(x)=1","f(x)=−1",1),
-
-Q("Mathématiques",
-"Quel est le discriminant de x²−5x+6=0 ?",
-"1","5","25","49",0),
-
-Q("Mathématiques",
-"Les solutions de x²−5x+6=0 sont :",
-"1 et 6","2 et 3","−2 et −3","0 et 5",1),
-
-Q("Mathématiques",
-"Calculer lim(x→3) (x²−9)/(x−3).",
-"0","3","6","9",2),
-
-Q("Mathématiques",
-"Calculer lim(x→+∞) (3x²−x+1)/(2x²+5).",
-"0","3/2","+∞","2/3",1),
-
-Q("Mathématiques",
-"Calculer lim(x→+∞) (5x+1)/(x²+1).",
-"0","1","5","+∞",0),
-
-Q("Mathématiques",
-"Pour f(x)=1/(x−2), la droite x=2 est :",
-"Une asymptote horizontale",
-"Une asymptote verticale",
-"Une asymptote oblique",
-"Une tangente",1),
-
-Q("Mathématiques",
-"Pour f(x)=(3x+1)/(x−2), l'asymptote horizontale est :",
-"y=2","y=3","x=2","y=−2",1),
-
-Q("Mathématiques",
-"Pour f(x)=(x²+1)/(x−1), quelle est l'asymptote oblique ?",
-"y=x+1","y=x−1","y=2x+1","y=x",0),
-
-Q("Mathématiques",
-"Quelle forme indéterminée obtient-on directement dans lim(x→0) sin(x)/x ?",
-"∞/∞","0/0","∞−∞","0×∞",1),
-
-Q("Mathématiques",
-"Quelle forme est indéterminée ?",
-"2/3","0/0","1/2","5",1),
-
-Q("Mathématiques",
-"Si log₂(x)=5, alors x vaut :",
-"10","25","32","64",2),
-
-Q("Mathématiques",
-"Si log₃(x)=4, alors x vaut :",
-"12","27","64","81",3),
-
-Q("Mathématiques",
-"Pour la suite uₙ=3n+2, u₅ vaut :",
-"15","17","18","20",1),
-
-Q("Mathématiques",
-"La suite uₙ=5·2ⁿ est :",
-"Arithmétique","Géométrique","Constante","Ni l'une ni l'autre",1),
-
-Q("Mathématiques",
-"Une suite arithmétique de premier terme 4 et de raison 3 a pour cinquième terme :",
-"13","16","19","20",1),
-
-Q("Mathématiques",
-"Compléter la suite : 2 ; 6 ; 18 ; 54 ; ...",
-"72","108","162","216",2),
-
-Q("Mathématiques",
-"Un nombre est divisible par 6 s'il est divisible simultanément par :",
-"2 et 3","2 et 5","3 et 5","4 et 6 uniquement",0),
-
-Q("Mathématiques",
-"Un père regarde un portrait. Il dit : « Je n'ai ni frère ni sœur, mais le père de cet homme est le fils de mon père. » Le portrait représente :",
-"Son père","Son fils","Son frère","Son cousin",1),
-
-Q("Mathématiques",
-"Si tous les A sont B et qu'aucun B n'est C, quelle conclusion est nécessairement vraie ?",
-"Certains A sont C","Aucun A n'est C","Tous les C sont A","Tous les B sont A",1)
+const questions=[
+
+/* ================= CULTURE 1-25 ================= */
+
+{
+s:"Culture générale",
+q:"Le prix Nobel de la paix est attribué à Oslo, contrairement aux autres prix Nobel traditionnellement remis à Stockholm. Quelle institution norvégienne intervient dans son attribution ?",
+o:["Le Parlement européen","Le Comité Nobel norvégien","La Cour suprême de Norvège","Le Conseil nordique"],
+a:1
+},
+
+{
+s:"Culture générale",
+q:"Alfred Nobel est principalement associé à :",
+o:["La découverte de la pénicilline","L'invention de la radio","La dynamite et la création des prix Nobel par testament","La création de l'ONU"],
+a:2
+},
+
+{
+s:"Culture générale",
+q:"L'OTAN a été créée en :",
+o:["1945","1949","1955","1960"],
+a:1
+},
+
+{
+s:"Culture générale",
+q:"Le siège politique principal de l'OTAN se trouve à :",
+o:["Paris","Bruxelles","Genève","New York"],
+a:1
+},
+
+{
+s:"Culture générale",
+q:"L'Union européenne trouve une origine institutionnelle importante dans :",
+o:["Les Communautés européennes","L'OUA","La SDN","La CEPGL"],
+a:0
+},
+
+{
+s:"Culture générale",
+q:"L'Organisation de l'unité africaine (OUA) a été créée en :",
+o:["1945","1958","1963","1975"],
+a:2
+},
+
+{
+s:"Culture générale",
+q:"L'Union africaine a officiellement remplacé l'OUA en :",
+o:["1994","2000","2002","2010"],
+a:2
+},
+
+{
+s:"Culture générale",
+q:"La CIRGL signifie :",
+o:["Communauté internationale pour la reconstruction du Golfe de Lubumbashi","Conférence internationale sur la région des Grands Lacs","Commission internationale des ressources géologiques lacustres","Conseil international régional des grands laboratoires"],
+a:1
+},
+
+{
+s:"Culture générale",
+q:"Le siège de l'Union africaine se trouve à :",
+o:["Addis-Abeba","Nairobi","Lusaka","Abuja"],
+a:0
+},
+
+{
+s:"Culture générale",
+q:"Le COMESA est principalement une organisation :",
+o:["Militaire européenne","D'intégration économique de l'Afrique orientale et australe","Judiciaire mondiale","Culturelle francophone uniquement"],
+a:1
+},
+
+{
+s:"Culture générale",
+q:"La SADC concerne principalement :",
+o:["L'Afrique australe","L'Afrique du Nord","L'Europe centrale","L'Amérique latine"],
+a:0
+},
+
+{
+s:"Culture générale",
+q:"La Société des Nations a été créée dans le contexte de :",
+o:["La Première Guerre mondiale et son après-guerre","La Seconde Guerre mondiale uniquement","La guerre froide","La décolonisation du Congo"],
+a:0
+},
+
+{
+s:"Culture générale",
+q:"L'ONU a été créée en :",
+o:["1919","1945","1948","1955"],
+a:1
+},
+
+{
+s:"Culture générale",
+q:"Le siège principal de l'ONU est situé à :",
+o:["Genève","New York","Paris","La Haye"],
+a:1
+},
+
+{
+s:"Culture générale",
+q:"Le FMI a principalement pour fonction de :",
+o:["Gérer les Jeux olympiques","Favoriser la coopération monétaire internationale et la stabilité financière","Attribuer les prix Nobel","Administrer les parcs nationaux"],
+a:1
+},
+
+{
+s:"Culture générale",
+q:"La FAO est principalement spécialisée dans :",
+o:["L'alimentation et l'agriculture","Les télécommunications","Le droit pénal international","L'aviation civile"],
+a:0
+},
+
+{
+s:"Culture générale",
+q:"La Cour pénale internationale siège à :",
+o:["Bruxelles","La Haye","Rome","Genève"],
+a:1
+},
+
+{
+s:"Culture générale",
+q:"L'OIF signifie :",
+o:["Organisation internationale de la francophonie","Organisation institutionnelle financière","Office international des frontières","Organisation interafricaine fiscale"],
+a:0
+},
+
+{
+s:"Culture générale",
+q:"La Constitution de la RDC du 18 février 2006 établit notamment que la RDC est un État :",
+o:["Fédéral et monarchique","De droit, indépendant, souverain, uni et indivisible, social, démocratique et laïc","Confédéral et religieux","Monarchique et unitaire"],
+a:1
+},
+
+{
+s:"Culture générale",
+q:"Après le découpage de 2015, la RDC compte :",
+o:["11 provinces","18 provinces","24 provinces","25 provinces et la ville-province de Kinshasa"],
+a:3
+},
+
+{
+s:"Culture générale",
+q:"Le chef-lieu du Haut-Katanga est :",
+o:["Kolwezi","Lubumbashi","Likasi","Kamina"],
+a:1
+},
+
+{
+s:"Culture générale",
+q:"Le chef-lieu du Lualaba est :",
+o:["Kolwezi","Lubumbashi","Kalemie","Kananga"],
+a:0
+},
+
+{
+s:"Culture générale",
+q:"L'ancienne appellation de Mbuji-Mayi est notamment :",
+o:["Bakwanga","Stanleyville","Élisabethville","Léopoldville"],
+a:0
+},
+
+{
+s:"Culture générale",
+q:"L'ancienne appellation d'Élisabethville correspond à l'actuelle :",
+o:["Kinshasa","Lubumbashi","Kisangani","Kananga"],
+a:1
+},
+
+{
+s:"Culture générale",
+q:"Quel raisonnement est logiquement valide ?",
+o:["Tous les comptables sont diplômés. Jean est diplômé. Donc Jean est comptable.","Tous les comptables sont diplômés. Jean est comptable. Donc Jean est diplômé.","Aucun comptable n'est étudiant. Jean n'est pas étudiant. Donc Jean est comptable.","Tous les étudiants travaillent. Jean travaille. Donc Jean est étudiant."],
+a:1
+},
+
+
+/* ================= FRANÇAIS 26-50 ================= */
+
+{
+s:"Français",
+q:"Dans « Les difficultés auxquelles nous avons été confrontés étaient nombreuses », « auxquelles » est :",
+o:["Un pronom relatif","Un adjectif qualificatif","Un adverbe","Une conjonction"],
+a:0
+},
+
+{
+s:"Français",
+q:"Dans « Il leur a expliqué la situation », « leur » est :",
+o:["COD","COI","Attribut","Complément circonstanciel"],
+a:1
+},
+
+{
+s:"Français",
+q:"Dans « Il travaille avec méthode », « avec méthode » est :",
+o:["CCT","CCM","COD","COI"],
+a:1
+},
+
+{
+s:"Français",
+q:"Dans « Il est devenu expert-comptable », « expert-comptable » est :",
+o:["COD","Attribut du sujet","COI","CCT"],
+a:1
+},
+
+{
+s:"Français",
+q:"Quelle phrase contient une proposition subordonnée complétive ?",
+o:["Je partirai quand il arrivera.","Je sais qu'il viendra.","Bien qu'il soit tard, je continue.","Il travaille pour réussir."],
+a:1
+},
+
+{
+s:"Français",
+q:"Quelle phrase contient une subordonnée circonstancielle de but ?",
+o:["Il vient parce qu'il travaille.","Il travaille afin qu'il puisse réussir.","Il part quand il pleut.","Il vient bien qu'il soit malade."],
+a:1
+},
+
+{
+s:"Français",
+q:"« Cette obscure clarté » constitue un :",
+o:["Pléonasme","Oxymore","Euphémisme","Palindrome"],
+a:1
+},
+
+{
+s:"Français",
+q:"Quelle expression est un pléonasme ?",
+o:["Monter en haut","Une obscure clarté","Un silence assourdissant","Une comparaison"],
+a:0
+},
+
+{
+s:"Français",
+q:"Un palindrome est une suite de caractères qui :",
+o:["Ne peut être prononcée","Se lit de la même manière dans les deux sens, selon le cas","Contient toujours une rime","Est nécessairement un verbe"],
+a:1
+},
+
+{
+s:"Français",
+q:"« Il a perdu la raison » peut être considéré comme une :",
+o:["Catachrèse selon le contexte","Anaphore obligatoire","Antithèse obligatoire","Gradation obligatoire"],
+a:0
+},
+
+{
+s:"Français",
+q:"Lequel est un paronyme ?",
+o:["Collision / collusion","Maison / maison","Chat / chien","Grand / petit"],
+a:0
+},
+
+{
+s:"Français",
+q:"Quelle phrase est correcte ?",
+o:["Il faut que tu viens.","Il faut que tu viennes.","Il faut que tu viendras.","Il faut que tu venais."],
+a:1
+},
+
+{
+s:"Français",
+q:"« Qu'il eût réussi » correspond au :",
+o:["Plus-que-parfait du subjonctif","Passé antérieur de l'indicatif","Conditionnel présent","Imparfait de l'indicatif"],
+a:0
+},
+
+{
+s:"Français",
+q:"Dans « Ils se sont parlé », le participe passé reste invariable parce que :",
+o:["Le verbe est toujours invariable","Le pronom « se » est COI","Le sujet est masculin","Le COD est placé après"],
+a:1
+},
+
+{
+s:"Français",
+q:"Dans « Les lettres qu'elle s'est écrites », l'accord de « écrites » est déterminé par :",
+o:["Le sujet elle","Le COD « qu' » placé avant","Le pronom se uniquement","Le verbe auxiliaire"],
+a:1
+},
+
+{
+s:"Français",
+q:"Quel pluriel est correct ?",
+o:["Des arcs-en-ciels","Des arcs-en-ciel","Des arc-en-ciels","Des arc-en-ciel uniquement"],
+a:1
+},
+
+{
+s:"Français",
+q:"Quel pluriel est correct ?",
+o:["Des timbres-postes","Des timbre-postes","Des timbres-poste","Des timbre-poste"],
+a:2
+},
+
+{
+s:"Français",
+q:"« Au temps pour moi » est traditionnellement employé pour :",
+o:["Reconnaître une erreur","Indiquer une heure précise","Exprimer une opposition","Donner une information géographique"],
+a:0
+},
+
+{
+s:"Français",
+q:"Quelle formulation est correcte ?",
+o:["Je vous saurais gré de répondre.","Je vous serais gré de répondre.","Je vous saurai gré de répondiez.","Je vous saurais grée de répondre."],
+a:0
+},
+
+{
+s:"Français",
+q:"Quelle phrase est correcte ?",
+o:["J'ai affaire à un spécialiste.","J'ai à faire à un spécialiste.","J'ai affaire un spécialiste.","J'ai à affaire à un spécialiste."],
+a:0
+},
+
+{
+s:"Français",
+q:"Quel verbe prend « crû » au participe passé masculin singulier ?",
+o:["Croître","Croire","Naître","Moudre"],
+a:0
+},
+
+{
+s:"Français",
+q:"Laquelle est correcte ?",
+o:["Il faut asseoir cette décision sur des faits.","Il faut assoir cette décision sur des faits uniquement.","Il faut asseyer cette décision.","Il faut assiér cette décision."],
+a:0
+},
+
+{
+s:"Français",
+q:"Quel couple auteur — œuvre est correct ?",
+o:["Victor Hugo — Les Misérables","Molière — Germinal","Émile Zola — Le Cid","Camus — Madame Bovary"],
+a:0
+},
+
+{
+s:"Français",
+q:"Quel auteur africain est associé à « Une si longue lettre » ?",
+o:["Mariama Bâ","Chinua Achebe","Aimé Césaire","Ahmadou Kourouma"],
+a:0
+},
+
+{
+s:"Français",
+q:"Dans le texte de compréhension, l'auteur distingue principalement :",
+o:["Les faits, les interprétations et les hypothèses","Les romans, les poèmes et les pièces","Les noms, les verbes et les adjectifs","Les pays, les villes et les provinces"],
+a:0
+},
+
+{
+s:"Français",
+q:"Selon le texte, observer une hausse des bénéfices après une décision suffit-il à prouver que cette décision en est la cause unique ?",
+o:["Oui, toujours","Non, car d'autres facteurs peuvent intervenir","Oui, si le responsable le pense","Oui, si le bénéfice est élevé"],
+a:1
+},
+
+{
+s:"Français",
+q:"Selon le texte, une erreur correctement analysée peut devenir :",
+o:["Une preuve d'incompétence définitive","Une source d'apprentissage","Une information inutile","Une règle grammaticale"],
+a:1
+},
+
+{
+s:"Français",
+q:"Selon le texte, la rigueur intellectuelle consiste notamment à :",
+o:["Refuser toute décision incertaine","Modifier une conclusion lorsque les faits l'exigent","Accumuler des opinions","Toujours suivre la majorité"],
+a:1
+},
+
+{
+s:"Français",
+q:"Dans le texte, une décision prise avec des informations incomplètes peut être rationnelle si :",
+o:["Ses hypothèses sont explicites et peuvent être révisées","Elle est prise rapidement sans analyse","Elle ne peut jamais être modifiée","Elle repose sur une opinion populaire"],
+a:0
+},
+
+
+/* ================= ANGLAIS 51-75 ================= */
+
+{
+s:"English",
+q:"If water reaches 100°C, it ___.",
+o:["boiled","boils","will boil","would boil"],
+a:1
+},
+
+{
+s:"English",
+q:"If I had known about the meeting, I ___ attended it.",
+o:["will have","would have","would","had"],
+a:1
+},
+
+{
+s:"English",
+q:"If she had studied medicine, she ___ a doctor now.",
+o:["would be","would have been","will be","is being"],
+a:0
+},
+
+{
+s:"English",
+q:"___ you finished the report yet?",
+o:["Did","Have","Were","Had"],
+a:1
+},
+
+{
+s:"English",
+q:"She ___ to school every day, but today she is sick.",
+o:["go","goes","is going always","went"],
+a:1
+},
+
+{
+s:"English",
+q:"I ___ dinner when he called.",
+o:["was having","have","had been have","am having"],
+a:0
+},
+
+{
+s:"English",
+q:"Which modal expresses strong obligation?",
+o:["might","must","could","may"],
+a:1
+},
+
+{
+s:"English",
+q:"You ___ have told me earlier; now it is too late.",
+o:["should","should have","must to","can have"],
+a:1
+},
+
+{
+s:"English",
+q:"___ you help me with this exercise?",
+o:["Could","Must","Need","Ought"],
+a:0
+},
+
+{
+s:"English",
+q:"He ___ be at home; I saw him leave ten minutes ago.",
+o:["must","can't","should","ought"],
+a:1
+},
+
+{
+s:"English",
+q:"I am looking forward to ___ from you.",
+o:["hear","hearing","heard","have hear"],
+a:1
+},
+
+{
+s:"English",
+q:"She is used to ___ early.",
+o:["wake","waking","woke","be wake"],
+a:1
+},
+
+{
+s:"English",
+q:"I used to ___ football when I was younger.",
+o:["playing","play","played","to playing"],
+a:1
+},
+
+{
+s:"English",
+q:"They called ___ the meeting because of the storm.",
+o:["off","up","in","over"],
+a:0
+},
+
+{
+s:"English",
+q:"“Break the ice” means:",
+o:["To destroy something","To make people feel more comfortable in a new situation","To become angry","To leave a meeting"],
+a:1
+},
+
+{
+s:"English",
+q:"Which is correct?",
+o:["Few students understood it.","A few water was left.","Few money remained.","A little students came."],
+a:0
+},
+
+{
+s:"English",
+q:"Which sentence is correct?",
+o:["There is a little water left.","There is a few water left.","There are little water left.","There are a little waters left."],
+a:0
+},
+
+{
+s:"English",
+q:"The superlative of “far” can be:",
+o:["farer only","farthest","more far","most farther"],
+a:1
+},
+
+{
+s:"English",
+q:"She is good ___ mathematics.",
+o:["in","on","at","for"],
+a:2
+},
+
+{
+s:"English",
+q:"He is interested ___ economics.",
+o:["at","in","on","with"],
+a:1
+},
+
+{
+s:"English",
+q:"The manager said, “I will finish the report tomorrow.” Reported speech:",
+o:["The manager said that he would finish the report the next day.","The manager said that I will finish the report tomorrow.","The manager said he will finished it tomorrow.","The manager says he would finish yesterday."],
+a:0
+},
+
+{
+s:"English",
+q:"The correct passive form of “They built the bridge in 2020” is:",
+o:["The bridge built in 2020.","The bridge was built in 2020.","The bridge has build in 2020.","The bridge is building in 2020."],
+a:1
+},
+
+{
+s:"English",
+q:"Which sentence is correct?",
+o:["She stopped to smoke.","She stopped smoking.","Both can be correct but they have different meanings.","Neither can be correct."],
+a:2
+},
+
+{
+s:"English",
+q:"“Explain” is normally followed by:",
+o:["explain me the problem","explain to me the problem","explain me to the problem","explain at me the problem"],
+a:1
+},
+
+{
+s:"English",
+q:"According to the reading passage, what should a student do after a wrong answer?",
+o:["Ignore it","Identify the reason for the mistake","Delete the test","Immediately stop studying"],
+a:1
+},
+
+{
+s:"English",
+q:"According to the passage, why can spending too much time on one question be harmful?",
+o:["It changes the question","It reduces time available for other questions","It makes the question easier","It prevents reading"],
+a:1
+},
+
+{
+s:"English",
+q:"According to the passage, advanced grammar questions require the learner to:",
+o:["Memorize isolated words only","Understand why a form fits its context","Avoid grammar rules","Translate every word literally"],
+a:1
+},
+
+{
+s:"English",
+q:"According to the passage, reading comprehension should depend on:",
+o:["Individual words only","Context and logical relationships","The length of the text only","Guessing the author's nationality"],
+a:1
+},
+
+{
+s:"English",
+q:"According to the passage, a higher score on one test:",
+o:["Guarantees a future result","Provides evidence of improvement but does not guarantee a future result","Is always meaningless","Proves perfect mastery"],
+a:1
+},
+
+
+/* ================= MATHS 76-100 ================= */
+
+{
+s:"Mathématiques",
+q:"Le domaine de définition de f(x)=√(x−4)/(x−7) est :",
+o:["[4,+∞[","[4,7[ ∪ ]7,+∞[","R\\{7}","]4,+∞["],
+a:1
+},
+
+{
+s:"Mathématiques",
+q:"Pour f(x)=ln(5−x), le domaine est :",
+o:["x≥5","x>5","x<5","R"],
+a:2
+},
+
+{
+s:"Mathématiques",
+q:"La limite lim(x→3) (x²−9)/(x−3) vaut :",
+o:["3","6","9","+∞"],
+a:1
+},
+
+{
+s:"Mathématiques",
+q:"La forme 0/0 rencontrée lors du calcul d'une limite est :",
+o:["Une forme donnant toujours 0","Une forme indéterminée","Une forme donnant toujours 1","Une forme impossible à étudier"],
+a:1
+},
+
+{
+s:"Mathématiques",
+q:"La limite lim(x→+∞) (4x³−2x)/(2x³+7) vaut :",
+o:["0","2","4","+∞"],
+a:1
+},
+
+{
+s:"Mathématiques",
+q:"La limite lim(x→+∞) (x²+3x)/(x+1) est :",
+o:["0","1","+∞","3"],
+a:2
+},
+
+{
+s:"Mathématiques",
+q:"La limite lim(x→0+) 1/x vaut :",
+o:["0","1","+∞","−∞"],
+a:2
+},
+
+{
+s:"Mathématiques",
+q:"Pour une fonction f telle que lim(x→a)f(x)=±∞, une asymptote verticale possible est :",
+o:["y=a","x=a","y=0","x=0 uniquement"],
+a:1
+},
+
+{
+s:"Mathématiques",
+q:"La fonction f(x)=x² est :",
+o:["Impaire","Paire","Ni paire ni impaire","Périodique de période 1"],
+a:1
+},
+
+{
+s:"Mathématiques",
+q:"Si f(−x)=−f(x), alors f est :",
+o:["Paire","Impaire","Constante","Bijective nécessairement"],
+a:1
+},
+
+{
+s:"Mathématiques",
+q:"La dérivée de f(x)=5x⁴−3x²+7 est :",
+o:["20x³−6x","20x⁴−6x","5x³−3x","20x³−3x"],
+a:0
+},
+
+{
+s:"Mathématiques",
+q:"La dérivée de f(x)=(3x+1)^5 est :",
+o:["5(3x+1)^4","15(3x+1)^4","(3x+1)^4","15(3x+1)^5"],
+a:1
+},
+
+{
+s:"Mathématiques",
+q:"Si f'(x)>0 sur un intervalle, alors f y est :",
+o:["Décroissante","Croissante","Constante nécessairement","Paire"],
+a:1
+},
+
+{
+s:"Mathématiques",
+q:"Pour f(x)=−x²+4x+1, le maximum est atteint en :",
+o:["x=−2","x=0","x=2","x=4"],
+a:2
+},
+
+{
+s:"Mathématiques",
+q:"Si f(x)=x² et g(x)=2x+1, alors (f∘g)(x) vaut :",
+o:["2x²+1","(2x+1)²","2x²+x","x²+2x+1"],
+a:1
+},
+
+{
+s:"Mathématiques",
+q:"Avec f(x)=1/x et g(x)=x−2, le domaine de f∘g est :",
+o:["R","R\\{0}","R\\{2}","]2,+∞["],
+a:2
+},
+
+{
+s:"Mathématiques",
+q:"Une fonction injective est une fonction pour laquelle :",
+o:["Deux antécédents distincts peuvent avoir la même image","Chaque élément de l'ensemble d'arrivée possède un antécédent","Deux antécédents différents n'ont jamais la même image","Toutes les images sont nulles"],
+a:2
+},
+
+{
+s:"Mathématiques",
+q:"Une fonction surjective de A vers B est une fonction telle que :",
+o:["Chaque élément de B possède au moins un antécédent dans A","Chaque élément de A possède deux images","A et B sont nécessairement identiques","Elle est nécessairement constante"],
+a:0
+},
+
+{
+s:"Mathématiques",
+q:"Une fonction est bijective lorsqu'elle est :",
+o:["Seulement injective","Seulement surjective","Injective et surjective","Ni injective ni surjective"],
+a:2
+},
+
+{
+s:"Mathématiques",
+q:"Si f est bijective, sa fonction réciproque f⁻¹ vérifie :",
+o:["f⁻¹(x)=f(x) toujours","f⁻¹(f(x))=x sur le domaine concerné","f⁻¹(x)=0 toujours","f(f(x))=0"],
+a:1
+},
+
+{
+s:"Mathématiques",
+q:"Dans une loi de composition interne sur E, un élément neutre e vérifie :",
+o:["x*e=e pour tout x uniquement","e*x=x*e=x pour tout x∈E","e*x=e uniquement","x*x=e pour tout x"],
+a:1
+},
+
+{
+s:"Mathématiques",
+q:"Une relation R sur E est réflexive si :",
+o:["xRy implique yRx","Pour tout x∈E, xRx","xRy et yRz impliquent xRz","Aucun élément n'est en relation avec lui-même"],
+a:1
+},
+
+{
+s:"Mathématiques",
+q:"Une relation est symétrique si :",
+o:["xRy implique yRx","xRy implique xRx","xRy et yRz impliquent xRz","xRy est toujours faux"],
+a:0
+},
+
+{
+s:"Mathématiques",
+q:"Une relation d'équivalence est nécessairement :",
+o:["Réflexive, symétrique et transitive","Réflexive seulement","Symétrique seulement","Transitive seulement"],
+a:0
+},
+
+{
+s:"Mathématiques",
+q:"Si deux triangles sont dans une configuration de Thalès avec des droites parallèles, les rapports de longueurs correspondants sont :",
+o:["Égaux","Toujours nuls","Toujours supérieurs à 1","Sans relation"],
+a:0
+}
 
 ];
 
 
 /* =========================================================
-   ÉTAT DU TEST
+   ÉTAT
 ========================================================= */
 
 let state={
- name:"",
- index:0,
- answers:Array(100).fill(null),
- started:false,
- locked:false,
- readingDone:{fr:false,en:false},
- readingInterval:null,
- questionInterval:null,
- questionSeconds:60
+name:"",
+index:0,
+answers:Array(questions.length).fill(null),
+started:false,
+locked:false,
+questionTimer:null,
+readingTimer:null,
+readingSubject:null,
+readingRemaining:900
 };
 
 
 /* =========================================================
-   OUTILS
+   ORDRE DES MATIÈRES
 ========================================================= */
 
-function $(id){
- return document.getElementById(id);
-}
+const sections=[
+"Culture générale",
+"Français",
+"English",
+"Mathématiques"
+];
 
-function escapeHTML(text){
- return String(text).replace(/[&<>"']/g,function(c){
-  return {
-   "&":"&amp;",
-   "<":"&lt;",
-   ">":"&gt;",
-   '"':"&quot;",
-   "'":"&#039;"
-  }[c];
- });
-}
-
-function formatTime(seconds){
- let m=Math.floor(seconds/60);
- let s=seconds%60;
- return String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
-}
+let currentSectionIndex=0;
 
 
 /* =========================================================
@@ -877,137 +1237,275 @@ function formatTime(seconds){
 
 function startTest(){
 
- let name=$("name").value.trim();
+const name=document.getElementById("nameInput").value.trim();
 
- if(!name){
-  alert("Veuillez entrer le nom du participant.");
-  return;
- }
+if(!name){
+alert("Veuillez entrer le nom du participant.");
+return;
+}
 
- state.name=name;
- state.started=true;
- state.index=0;
+state.name=name;
+state.started=true;
+state.index=0;
+state.answers=Array(questions.length).fill(null);
 
- $("home").classList.add("hidden");
- $("test").classList.remove("hidden");
+currentSectionIndex=0;
 
- history.pushState({test:true},"","#test");
+sessionStorage.removeItem("NT_DISQUALIFIED");
 
- renderQuestion();
+document.getElementById("home").classList.add("hidden");
+document.getElementById("quizScreen").classList.remove("hidden");
+
+history.pushState({test:true},"","#test");
+
+showQuestion();
+
 }
 
 
 /* =========================================================
-   QUESTION
+   MATIÈRE DE LA QUESTION
 ========================================================= */
 
-function renderQuestion(){
-
- clearInterval(state.questionInterval);
-
- let q=QUESTIONS[state.index];
-
- $("subject").textContent=q.subject.toUpperCase();
- $("participant").textContent=state.name;
-
- $("counter").textContent=
- "Question "+(state.index+1)+"/100";
-
- $("testProgress").style.width=
- ((state.index+1)/100*100)+"%";
-
- let html=
- `<div class="question">${escapeHTML(q.question)}</div>`;
-
- q.options.forEach((option,i)=>{
-
-  let selected=state.answers[state.index]===i
-   ?" selected":"";
-
-  html+=`
-   <button class="option${selected}"
-    onclick="chooseAnswer(${i})">
-    ${String.fromCharCode(65+i)}. ${escapeHTML(option)}
-   </button>
-  `;
- });
-
- $("question").innerHTML=html;
-
- $("previous").disabled=state.index===0;
-
- if(q.subject==="Français"){
-  $("textButton").innerHTML=
-   `<button class="secondary" onclick="openText('fr')">
-    📖 Revoir le texte français
-   </button>`;
- }
-
- else if(q.subject==="English"){
-  $("textButton").innerHTML=
-   `<button class="secondary" onclick="openText('en')">
-    📖 Review the English passage
-   </button>`;
- }
-
- else{
-  $("textButton").innerHTML="";
- }
-
- startQuestionTimer();
+function currentQuestion(){
+return questions[state.index];
 }
 
 
 /* =========================================================
-   CHOIX
+   DÉMARRER LA LECTURE
 ========================================================= */
 
-function chooseAnswer(index){
+function beginReading(subject){
 
- state.answers[state.index]=index;
+clearInterval(state.readingTimer);
 
- renderQuestion();
+state.readingSubject=subject;
+state.readingRemaining=900;
+
+const data=
+subject==="Français"
+?texts.francais
+:texts.anglais;
+
+document.getElementById("quizScreen").classList.add("hidden");
+document.getElementById("readingScreen").classList.remove("hidden");
+
+document.getElementById("readingSubject").textContent=subject;
+
+document.getElementById("readingTitle").textContent=data.title;
+
+document.getElementById("readingText").textContent=data.text;
+
+document.getElementById("readingTimer").textContent="15:00";
+
+state.readingTimer=setInterval(()=>{
+
+state.readingRemaining--;
+
+document.getElementById("readingTimer").textContent=
+formatTime(state.readingRemaining);
+
+if(state.readingRemaining<=0){
+
+clearInterval(state.readingTimer);
+
+goToQuestionsAfterReading();
+
+}
+
+},1000);
+
 }
 
 
 /* =========================================================
-   MINUTEUR QUESTION
+   PASSER / TERMINER LECTURE
+========================================================= */
+
+function skipReading(){
+
+clearInterval(state.readingTimer);
+
+goToQuestionsAfterReading();
+
+}
+
+function goToQuestionsAfterReading(){
+
+clearInterval(state.readingTimer);
+
+state.readingTimer=null;
+
+document.getElementById("readingScreen").classList.add("hidden");
+document.getElementById("quizScreen").classList.remove("hidden");
+
+showQuestion();
+
+}
+
+
+/* =========================================================
+   AFFICHER QUESTION
+========================================================= */
+
+function showQuestion(){
+
+clearInterval(state.questionTimer);
+
+const q=currentQuestion();
+
+const previous=
+state.index>0
+?questions[state.index-1].s
+:null;
+
+const enteringNewSubject=
+state.index===0 ||
+previous!==q.s;
+
+if(
+enteringNewSubject &&
+(q.s==="Français"||q.s==="English")
+){
+
+beginReading(q.s);
+return;
+
+}
+
+document.getElementById("subjectBadge").textContent=
+q.s.toUpperCase();
+
+document.getElementById("nameDisplay").textContent=
+state.name;
+
+document.getElementById("questionCounter").textContent=
+`Question ${state.index+1}/100`;
+
+document.getElementById("progressBar").style.width=
+((state.index+1)/100*100)+"%";
+
+document.getElementById("questionArea").innerHTML=`
+
+<div class="meta">${q.s}</div>
+
+<div class="question">
+${escapeHTML(q.q)}
+</div>
+
+${q.o.map((option,i)=>`
+
+<button
+class="option ${state.answers[state.index]===i?"selected":""}"
+onclick="selectAnswer(${i})">
+
+${String.fromCharCode(65+i)}. ${escapeHTML(option)}
+
+</button>
+
+`).join("")}
+
+`;
+
+document.getElementById("previousButton").disabled=
+state.index===0;
+
+document.getElementById("textButton").innerHTML="";
+
+/*
+Le texte est consultable pendant les questions
+mais il n'y a PLUS de minuteur de lecture.
+*/
+
+if(q.s==="Français"){
+
+document.getElementById("textButton").innerHTML=
+`<button class="secondary" onclick="openText('francais')">
+Voir le texte
+</button>`;
+
+}
+
+if(q.s==="English"){
+
+document.getElementById("textButton").innerHTML=
+`<button class="secondary" onclick="openText('anglais')">
+View passage
+</button>`;
+
+}
+
+startQuestionTimer();
+
+}
+
+
+/* =========================================================
+   RÉPONSE
+========================================================= */
+
+function selectAnswer(index){
+
+state.answers[state.index]=index;
+
+document
+.querySelectorAll(".option")
+.forEach((button,i)=>{
+button.classList.toggle(
+"selected",
+i===index
+);
+});
+
+}
+
+
+/* =========================================================
+   CHRONO QUESTION
 ========================================================= */
 
 function startQuestionTimer(){
 
- clearInterval(state.questionInterval);
+clearInterval(state.questionTimer);
 
- state.questionSeconds=60;
+let remaining=60;
 
- updateQuestionTimer();
+const timer=document.getElementById("questionTimer");
 
- state.questionInterval=setInterval(()=>{
+timer.textContent="01:00";
+timer.className="timer";
 
-  state.questionSeconds--;
+state.questionTimer=setInterval(()=>{
 
-  updateQuestionTimer();
+remaining--;
 
-  if(state.questionSeconds<=0){
+timer.textContent=formatTime(remaining);
 
-   clearInterval(state.questionInterval);
+if(remaining<=10){
 
-   nextQuestion();
-  }
+timer.className="timer danger";
 
- },1000);
+}else if(remaining<=20){
+
+timer.className="timer warn";
+
+}else{
+
+timer.className="timer";
+
 }
 
+if(remaining<=0){
 
-function updateQuestionTimer(){
+clearInterval(state.questionTimer);
 
- $("questionTimer").textContent=
- formatTime(state.questionSeconds);
+nextQuestion();
 
- $("questionTimer").classList.remove("danger");
+}
 
- if(state.questionSeconds<=10)
-  $("questionTimer").classList.add("danger");
+},1000);
+
 }
 
 
@@ -1017,157 +1515,57 @@ function updateQuestionTimer(){
 
 function nextQuestion(){
 
- clearInterval(state.questionInterval);
+clearInterval(state.questionTimer);
 
- if(state.index===24 && !state.readingDone.fr){
+if(state.index<questions.length-1){
 
-  state.index=25;
+state.index++;
 
-  showReading("fr");
+showQuestion();
 
-  return;
- }
+}else{
 
- if(state.index===49 && !state.readingDone.en){
+finishTest();
 
-  state.index=50;
-
-  showReading("en");
-
-  return;
- }
-
- if(state.index>=99){
-
-  finishTest();
-
-  return;
- }
-
- state.index++;
-
- renderQuestion();
 }
 
+}
 
 function previousQuestion(){
 
- if(state.index===0)return;
+if(state.index===0)return;
 
- clearInterval(state.questionInterval);
+clearInterval(state.questionTimer);
 
- state.index--;
+state.index--;
 
- renderQuestion();
+showQuestion();
+
 }
 
 
 /* =========================================================
-   LECTURE 15 MINUTES
+   TEXTE PENDANT QUESTIONS
 ========================================================= */
 
-function showReading(language){
+function openText(type){
 
- clearInterval(state.questionInterval);
- clearInterval(state.readingInterval);
+const data=texts[type];
 
- $("test").classList.add("hidden");
- $("reading").classList.remove("hidden");
+document.getElementById("modalTitle").textContent=
+data.title;
 
- if(language==="fr"){
+document.getElementById("modalContent").textContent=
+data.text;
 
-  $("readingSubject").textContent="FRANÇAIS";
-  $("readingTitle").textContent="Texte de compréhension — Français";
-  $("readingText").textContent=TEXT_FR;
+document.getElementById("textModal").classList.add("show");
 
- }else{
-
-  $("readingSubject").textContent="ENGLISH";
-  $("readingTitle").textContent="Reading passage — English";
-  $("readingText").textContent=TEXT_EN;
-
- }
-
- let seconds=900;
-
- $("readingTimer").textContent=formatTime(seconds);
- $("readingProgress").style.width="100%";
-
- state.readingInterval=setInterval(()=>{
-
-  seconds--;
-
-  $("readingTimer").textContent=
-   formatTime(seconds);
-
-  $("readingProgress").style.width=
-   (seconds/900*100)+"%";
-
-  if(seconds<=0){
-
-   finishReading(language);
-  }
-
- },1000);
 }
-
-
-function finishReading(language){
-
- if(state.readingDone[language])return;
-
- state.readingDone[language]=true;
-
- clearInterval(state.readingInterval);
- state.readingInterval=null;
-
- $("reading").classList.add("hidden");
- $("test").classList.remove("hidden");
-
- renderQuestion();
-}
-
-
-function skipReading(){
-
- let language=state.index===25?"fr":"en";
-
- finishReading(language);
-}
-
-
-/* =========================================================
-   REVOIR LE TEXTE
-========================================================= */
-
-function openText(language){
-
- $("modal").classList.add("show");
-
- if(language==="fr"){
-
-  $("modalTitle").textContent="Texte français";
-  $("modalText").textContent=TEXT_FR;
-
- }else{
-
-  $("modalTitle").textContent="English passage";
-  $("modalText").textContent=TEXT_EN;
-
- }
-
- /*
-    IMPORTANT :
-    aucun setInterval ici.
-    Le minuteur de 15 minutes NE fonctionne PAS
-    pendant la consultation du texte.
- */
-}
-
 
 function closeText(){
 
- $("modal").classList.remove("show");
+document.getElementById("textModal").classList.remove("show");
+
 }
 
 
@@ -1177,258 +1575,358 @@ function closeText(){
 
 function finishTest(){
 
- clearInterval(state.questionInterval);
- clearInterval(state.readingInterval);
+clearInterval(state.questionTimer);
 
- state.started=false;
+state.started=false;
 
- let score=0;
+let score=0;
 
- let errors=[];
+const stats={};
 
- let subjects={
-  "Culture générale":{correct:0,total:25},
-  "Français":{correct:0,total:25},
-  "English":{correct:0,total:25},
-  "Mathématiques":{correct:0,total:25}
- };
+questions.forEach((q,i)=>{
 
- QUESTIONS.forEach((q,i)=>{
+if(!stats[q.s]){
+stats[q.s]={total:0,correct:0};
+}
 
-  let answer=state.answers[i];
+stats[q.s].total++;
 
-  if(answer===q.correct){
+if(state.answers[i]===q.a){
 
-   score++;
-   subjects[q.subject].correct++;
+score++;
+stats[q.s].correct++;
 
-  }else{
+}
 
-   errors.push({
-    number:i+1,
-    question:q.question,
-    chosen:answer===null
-     ?"Aucune réponse"
-     :q.options[answer],
-    correct:q.options[q.correct],
-    subject:q.subject
-   });
-  }
+});
 
- });
 
- let percentage=score;
+let rows="";
 
- let rows="";
+Object.keys(stats).forEach(subject=>{
 
- Object.keys(subjects).forEach(subject=>{
+const s=stats[subject];
 
-  let s=subjects[subject];
+rows+=`
 
-  rows+=`
-   <tr>
-    <td>${subject}</td>
-    <td>${s.correct}/${s.total}</td>
-    <td>${Math.round(s.correct/s.total*100)}%</td>
-   </tr>
-  `;
- });
+<tr>
+<td>${subject}</td>
+<td>${s.correct}/${s.total}</td>
+<td>${Math.round(s.correct/s.total*100)}%</td>
+</tr>
 
- let errorRows="";
+`;
 
- errors.forEach(e=>{
+});
 
-  errorRows+=`
-   <tr>
-    <td>${e.number}</td>
-    <td>${e.subject}</td>
-    <td>${escapeHTML(e.question)}</td>
-    <td>${escapeHTML(e.chosen)}</td>
-    <td>${escapeHTML(e.correct)}</td>
-   </tr>
-  `;
- });
 
- $("test").classList.add("hidden");
- $("results").classList.remove("hidden");
+let errors="";
 
- $("results").innerHTML=`
+questions.forEach((q,i)=>{
 
-  <span class="badge">RÉSULTATS</span>
+if(state.answers[i]!==q.a){
 
-  <h1>${score}/100 — ${percentage}%</h1>
+errors+=`
 
-  <h2>Résultats par matière</h2>
+<tr>
 
-  <table>
-   <thead>
-    <tr>
-     <th>Matière</th>
-     <th>Score</th>
-     <th>%</th>
-    </tr>
-   </thead>
+<td>${i+1}</td>
 
-   <tbody>
-    ${rows}
-   </tbody>
-  </table>
+<td>${escapeHTML(q.q)}</td>
 
-  <h2>📝 Carnet d'erreurs</h2>
+<td class="error">
+${state.answers[i]===null
+?"Aucune réponse"
+:escapeHTML(q.o[state.answers[i]])}
+</td>
 
-  ${
-   errors.length===0
-   ?"<div class='notice'>Aucune erreur. 100/100.</div>"
-   :
-   `<table>
-    <thead>
-     <tr>
-      <th>#</th>
-      <th>Matière</th>
-      <th>Question</th>
-      <th>Votre réponse</th>
-      <th>Bonne réponse</th>
-     </tr>
-    </thead>
-    <tbody>
-     ${errorRows}
-    </tbody>
-   </table>`
-  }
+<td class="correct">
+${escapeHTML(q.o[q.a])}
+</td>
 
-  <br>
+</tr>
 
-  <div class="notice">
-   <strong>Participant :</strong> ${escapeHTML(state.name)}<br>
-   <strong>Score final :</strong> ${score}/100<br>
-   <strong>Pourcentage :</strong> ${percentage}%
-  </div>
- `;
+`;
+
+}
+
+});
+
+
+if(!errors){
+
+errors=`
+<tr>
+<td colspan="4" class="correct">
+Aucune erreur — ${score}/100.
+</td>
+</tr>
+`;
+
+}
+
+
+document.getElementById("quizScreen").classList.add("hidden");
+
+document.getElementById("results").classList.remove("hidden");
+
+document.getElementById("results").innerHTML=`
+
+<span class="badge">RÉSULTATS — BY N.T</span>
+
+<h1>${score}/100</h1>
+
+<h2>${score}%</h2>
+
+<p>
+Participant : <strong>${escapeHTML(state.name)}</strong>
+</p>
+
+<h2>Résultats par matière</h2>
+
+<table>
+
+<thead>
+<tr>
+<th>Matière</th>
+<th>Score</th>
+<th>Pourcentage</th>
+</tr>
+</thead>
+
+<tbody>
+${rows}
+</tbody>
+
+</table>
+
+<h2>📝 Carnet d'erreurs</h2>
+
+<table>
+
+<thead>
+
+<tr>
+<th>#</th>
+<th>Question</th>
+<th>Votre réponse</th>
+<th>Réponse correcte</th>
+</tr>
+
+</thead>
+
+<tbody>
+${errors}
+</tbody>
+
+</table>
+
+<br>
+
+<button onclick="location.reload()">
+Recommencer
+</button>
+
+`;
+
 }
 
 
 /* =========================================================
-   ANTI-SORTIE / ANTI-TRICHE
+   FORMAT TEMPS
 ========================================================= */
 
-function lockTest(reason){
+function formatTime(seconds){
 
- if(!state.started || state.locked)return;
+seconds=Math.max(0,seconds);
 
- state.locked=true;
- state.started=false;
+return String(Math.floor(seconds/60)).padStart(2,"0")
++":"+
+String(seconds%60).padStart(2,"0");
 
- clearInterval(state.questionInterval);
- clearInterval(state.readingInterval);
-
- $("home").classList.add("hidden");
- $("test").classList.add("hidden");
- $("reading").classList.add("hidden");
- $("results").classList.add("hidden");
-
- $("locked").classList.remove("hidden");
-
- $("lockReason").textContent=reason;
 }
 
 
-/*
-   Si l'utilisateur quitte l'onglet,
-   la session est verrouillée.
-*/
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
 
-document.addEventListener("visibilitychange",()=>{
+function escapeHTML(value){
 
- if(
-  state.started &&
-  document.visibilityState==="hidden"
- ){
+return String(value).replace(/[&<>"']/g,function(c){
 
-  lockTest(
-   "La page est devenue invisible. La session a été interrompue."
-  );
- }
+return {
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+}[c];
+
+});
+
+}
+
+
+/* =========================================================
+   ANTI-TRICHE
+========================================================= */
+
+function disqualify(message){
+
+if(!state.started || state.locked)return;
+
+state.locked=true;
+state.started=false;
+
+clearInterval(state.questionTimer);
+clearInterval(state.readingTimer);
+
+sessionStorage.setItem(
+"NT_DISQUALIFIED",
+"1"
+);
+
+document.getElementById("home").classList.add("hidden");
+document.getElementById("quizScreen").classList.add("hidden");
+document.getElementById("readingScreen").classList.add("hidden");
+document.getElementById("results").classList.add("hidden");
+
+document.getElementById("locked").classList.remove("hidden");
+
+document.getElementById("lockMessage").textContent=message;
+
+}
+
+
+/* =========================================================
+   DÉTECTION SORTIE
+========================================================= */
+
+document.addEventListener("visibilitychange",function(){
+
+if(
+state.started &&
+document.visibilityState==="hidden"
+){
+
+disqualify(
+"Changement d'onglet, minimisation ou sortie de la page détecté(e). La tentative est invalidée."
+);
+
+}
 
 });
 
 
-/*
-   Navigation arrière.
-*/
+window.addEventListener("pagehide",function(){
 
-window.addEventListener("popstate",()=>{
+if(state.started){
 
- if(state.started){
+disqualify(
+"La page a été quittée. La tentative est invalidée."
+);
 
-  lockTest(
-   "Une navigation arrière a été détectée."
-  );
-
- }
+}
 
 });
 
 
-/*
-   Empêche certains raccourcis.
-*/
+window.addEventListener("beforeunload",function(e){
 
-document.addEventListener("keydown",(e)=>{
+if(state.started){
 
- if(!state.started)return;
+e.preventDefault();
 
- if(
-  (e.ctrlKey||e.metaKey) &&
-  ["r","R","w","W","l","L"].includes(e.key)
- ){
+e.returnValue="";
 
-  e.preventDefault();
-
-  lockTest(
-   "Un raccourci de navigation a été détecté."
-  );
- }
-
- if(e.key==="F5"){
-
-  e.preventDefault();
-
-  lockTest(
-   "Une tentative de rechargement a été détectée."
-  );
- }
+}
 
 });
 
 
-/*
-   Empêche le menu contextuel pendant le test.
-*/
+window.addEventListener("popstate",function(){
 
-document.addEventListener("contextmenu",(e)=>{
+if(state.started){
 
- if(state.started)
-  e.preventDefault();
+disqualify(
+"La navigation arrière a été détectée. La tentative est invalidée."
+);
+
+}
+
+});
+
+
+document.addEventListener("contextmenu",function(e){
+
+if(state.started){
+
+e.preventDefault();
+
+}
 
 });
 
 
-/*
-   Avertissement lors de fermeture/rechargement.
-*/
+document.addEventListener("keydown",function(e){
 
-window.addEventListener("beforeunload",(e)=>{
+if(!state.started)return;
 
- if(state.started){
+const blocked=
+(e.ctrlKey||e.metaKey)&&
+["r","R","w","W","l","L","u","U","s","S"].includes(e.key);
 
-  e.preventDefault();
-  e.returnValue="";
+if(
+blocked||
+e.key==="F5"||
+e.key==="F12"
+){
 
- }
+e.preventDefault();
+
+disqualify(
+"Une tentative de raccourci du navigateur a été détectée. La tentative est invalidée."
+);
+
+}
 
 });
+
+
+/* =========================================================
+   EMPÊCHER CERTAINS GLISSEMENTS / COPIES
+========================================================= */
+
+document.addEventListener("dragstart",function(e){
+
+if(state.started)e.preventDefault();
+
+});
+
+document.addEventListener("selectstart",function(e){
+
+if(state.started)e.preventDefault();
+
+});
+
+
+/* =========================================================
+   RÉCUPÉRATION D'UNE SESSION INVALIDÉE
+========================================================= */
+
+if(sessionStorage.getItem("NT_DISQUALIFIED")==="1"){
+
+document.getElementById("home").classList.add("hidden");
+
+document.getElementById("locked").classList.remove("hidden");
+
+document.getElementById("lockMessage").textContent=
+"Cette session a déjà été invalidée et ne peut pas être reprise dans cet onglet.";
+
+}
 
 </script>
 
 </body>
-  </html>
+ </html>
