@@ -2,349 +2,509 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Excellentia RDC — Préparation intensive | By N.T</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Excellentia RDC — By N.T</title>
+
 <style>
 *{box-sizing:border-box}
+
 body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:#0b1020;
-  color:#f5f7ff;
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#0b1020;
+    color:#fff;
 }
-button,input{font:inherit}
-.screen{display:none;min-height:100vh;padding:25px}
-.screen.active{display:block}
-.container{max-width:1000px;margin:auto}
+
+.screen{
+    display:none;
+    min-height:100vh;
+    padding:20px;
+}
+
+.screen.active{
+    display:block;
+}
+
+.container{
+    max-width:950px;
+    margin:auto;
+}
+
 .card{
-  background:#151c31;
-  border:1px solid #293452;
-  border-radius:18px;
-  padding:25px;
-  box-shadow:0 12px 35px rgba(0,0,0,.25);
+    background:#151d32;
+    border:1px solid #303b5d;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
 }
-h1,h2,h3{margin-top:0}
+
+h1,h2,h3{
+    margin-top:0;
+}
+
+.center{
+    text-align:center;
+}
+
 .logo{
-  text-align:center;
-  font-size:34px;
-  font-weight:800;
-  margin:35px 0 10px;
+    text-align:center;
+    font-size:34px;
+    font-weight:bold;
+    margin:35px 0 10px;
 }
-.subtitle{text-align:center;color:#aeb9d8}
+
+.subtitle{
+    text-align:center;
+    color:#aeb9d8;
+}
+
 input{
-  width:100%;
-  padding:14px;
-  margin:18px 0;
-  border-radius:10px;
-  border:1px solid #3b486d;
-  background:#0d1427;
-  color:white;
+    width:100%;
+    padding:15px;
+    margin:20px 0;
+    border-radius:10px;
+    border:1px solid #3d4a70;
+    background:#0d1427;
+    color:white;
+    outline:none;
 }
+
 button{
-  border:0;
-  border-radius:10px;
-  padding:13px 20px;
-  cursor:pointer;
-  font-weight:700;
-  background:#4267ff;
-  color:white;
+    border:none;
+    border-radius:10px;
+    padding:14px 20px;
+    background:#4568ff;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
 }
-button:hover{filter:brightness(1.12)}
-button.secondary{background:#303b59}
-button.danger{background:#b83232}
-button.success{background:#16885c}
-button:disabled{opacity:.5;cursor:not-allowed}
-.center{text-align:center}
+
+button:hover{
+    filter:brightness(1.15);
+}
+
+button.secondary{
+    background:#39445f;
+}
+
+button.success{
+    background:#14865c;
+}
+
+button.danger{
+    background:#b83b3b;
+}
+
+button:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
 .info{
-  padding:14px;
-  border-radius:10px;
-  background:#10182c;
-  margin:15px 0;
-  line-height:1.6;
+    background:#0f172b;
+    border-radius:12px;
+    padding:15px;
+    line-height:1.7;
+    margin:15px 0;
 }
-.timer{
-  text-align:center;
-  font-size:30px;
-  font-weight:800;
-  padding:10px;
-  margin-bottom:15px;
-  border-radius:12px;
-  background:#0c1428;
-}
-.question-number{
-  color:#91a4dc;
-  margin-bottom:10px;
-}
-.question{
-  font-size:21px;
-  line-height:1.5;
-  margin-bottom:22px;
-}
-.options{display:grid;gap:12px}
-.option{
-  width:100%;
-  text-align:left;
-  background:#202a45;
-  border:2px solid transparent;
-  padding:15px;
-}
-.option.selected{
-  border-color:#6682ff;
-  background:#293760;
-}
-.nav{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  margin-top:25px;
-}
-.progress{
-  height:8px;
-  background:#252f4c;
-  border-radius:20px;
-  overflow:hidden;
-  margin-bottom:15px;
-}
-.progress div{
-  height:100%;
-  background:#5475ff;
-  width:0;
-}
-.reading-title{text-align:center}
-.reading-text{
-  background:#0d1529;
-  border:1px solid #303d60;
-  padding:20px;
-  border-radius:14px;
-  line-height:1.8;
-  max-height:55vh;
-  overflow:auto;
-  margin:20px 0;
-}
-.reading-actions{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-}
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.82);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  z-index:1000;
-}
-.modal.active{display:flex}
-.modal-box{
-  background:#151c31;
-  border-radius:18px;
-  max-width:850px;
-  max-height:85vh;
-  overflow:auto;
-  padding:25px;
-}
-.result-score{
-  text-align:center;
-  font-size:50px;
-  font-weight:900;
-  margin:20px;
-}
-.result-item{
-  padding:15px;
-  margin:10px 0;
-  border-radius:10px;
-  background:#10182c;
-}
-.correct{border-left:5px solid #18a66c}
-.wrong{border-left:5px solid #d94c4c}
-.small{font-size:14px;color:#aeb9d8}
+
 .warning{
-  background:#3a2510;
-  border:1px solid #80551e;
-  padding:14px;
-  border-radius:10px;
-  margin:15px 0;
+    background:#38270f;
+    border:1px solid #73531c;
+    padding:14px;
+    border-radius:10px;
+    margin:15px 0;
 }
-#cheatScreen{
-  background:#280d0d;
+
+.timer{
+    text-align:center;
+    font-size:30px;
+    font-weight:bold;
+    padding:12px;
+    border-radius:12px;
+    background:#0c1428;
+    margin:15px 0;
 }
-#cheatScreen .card{
-  border-color:#a43c3c;
+
+.progress{
+    height:8px;
+    background:#27314c;
+    border-radius:20px;
+    overflow:hidden;
+    margin:15px 0;
 }
-table{
-  width:100%;
-  border-collapse:collapse;
-  margin-top:20px;
+
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:#5274ff;
+    transition:.2s;
 }
-th,td{
-  border:1px solid #303b59;
-  padding:10px;
-  text-align:left;
+
+.question-number{
+    color:#9eadd2;
+    margin-bottom:10px;
 }
-th{background:#202a45}
+
+.question{
+    font-size:21px;
+    line-height:1.5;
+    margin:20px 0;
+}
+
+.options{
+    display:grid;
+    gap:12px;
+}
+
+.option{
+    width:100%;
+    text-align:left;
+    background:#202a45;
+    border:2px solid transparent;
+    font-size:16px;
+}
+
+.option.selected{
+    border-color:#6985ff;
+    background:#2d3a62;
+}
+
+.nav{
+    display:flex;
+    justify-content:flex-end;
+    margin-top:25px;
+}
+
+.reading-text{
+    background:#0c1428;
+    border:1px solid #303d60;
+    border-radius:12px;
+    padding:20px;
+    line-height:1.8;
+    white-space:pre-line;
+    max-height:55vh;
+    overflow:auto;
+}
+
+.reading-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.85);
+    z-index:1000;
+    padding:20px;
+    align-items:center;
+    justify-content:center;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-content{
+    background:#151d32;
+    border-radius:18px;
+    padding:25px;
+    width:min(900px,100%);
+    max-height:90vh;
+    overflow:auto;
+}
+
+.result-score{
+    font-size:55px;
+    font-weight:bold;
+    text-align:center;
+    margin:25px;
+}
+
+.result-item{
+    padding:15px;
+    margin:10px 0;
+    border-radius:10px;
+    background:#10182c;
+}
+
+.correct{
+    border-left:5px solid #16a36b;
+}
+
+.wrong{
+    border-left:5px solid #d34747;
+}
+
+.small{
+    font-size:14px;
+    color:#aeb9d8;
+}
+
 @media(max-width:600px){
-  .screen{padding:12px}
-  .card{padding:17px}
-  .question{font-size:18px}
-  .logo{font-size:27px}
+    .logo{font-size:27px}
+    .card{padding:17px}
+    .question{font-size:18px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- ACCUEIL -->
-<section id="homeScreen" class="screen active">
-  <div class="container">
+<!-- ========================= ACCUEIL ========================= -->
+
+<section id="home" class="screen active">
+<div class="container">
+
     <div class="logo">EXCELLENTIA RDC</div>
-    <p class="subtitle">Préparation intensive — 100 QCM</p>
+    <p class="subtitle">Préparation intensive — 100 questions</p>
 
     <div class="card">
-      <h2>By N.T</h2>
-      <p>
-        100 questions réparties en quatre domaines :
-        Culture générale, Français, English et Mathématiques.
-      </p>
 
-      <div class="info">
-        <b>Organisation :</b><br>
-        • 25 Culture générale<br>
-        • 25 Français<br>
-        • 25 English<br>
-        • 25 Mathématiques<br><br>
-        <b>Temps :</b> 1 minute par question.<br>
-        <b>Lecture :</b> 15 minutes maximum pour chaque texte, avec possibilité de passer immédiatement.
-      </div>
+        <h2 class="center">By N.T</h2>
 
-      <div class="warning">
-        Le changement d’onglet, la sortie de la page ou la perte de visibilité de la fenêtre
-        invalide automatiquement la tentative.
-      </div>
+        <p>
+            Test complet de préparation couvrant les quatre domaines :
+        </p>
 
-      <input id="participantName" type="text" placeholder="Entre ton nom complet">
+        <div class="info">
+            <b>25</b> Culture générale<br>
+            <b>25</b> Français<br>
+            <b>25</b> English<br>
+            <b>25</b> Mathématiques<br><br>
 
-      <button id="startBtn" style="width:100%">COMMENCER LE TEST</button>
+            <b>Temps :</b> 1 minute par question.<br>
+            <b>Lecture :</b> 15 minutes maximum pour chaque texte.
+        </div>
 
-      <p class="center subtitle" style="margin-top:25px">
-        Bonne chance de la part de Nathan.
-      </p>
+        <div class="warning">
+            Le changement d’onglet ou la sortie de la page pendant le test
+            invalide la tentative.
+        </div>
+
+        <input
+            id="nameInput"
+            type="text"
+            placeholder="Entre ton nom complet"
+            autocomplete="off"
+        >
+
+        <button id="startButton" style="width:100%">
+            COMMENCER LE TEST
+        </button>
+
+        <p class="subtitle center" style="margin-top:25px">
+            Bonne chance de la part de Nathan.
+        </p>
+
     </div>
-  </div>
+</div>
 </section>
 
-<!-- LECTURE -->
-<section id="readingScreen" class="screen">
-  <div class="container">
-    <div class="card">
-      <h2 id="readingTitle" class="reading-title"></h2>
 
-      <div id="readingTimer" class="timer">15:00</div>
+<!-- ========================= LECTURE ========================= -->
 
-      <div id="readingText" class="reading-text"></div>
+<section id="reading" class="screen">
+<div class="container">
 
-      <div class="reading-actions">
-        <button id="skipReading" class="success">PASSER → COMMENCER LES QUESTIONS</button>
-      </div>
-
-      <p class="small center">
-        Tu peux passer immédiatement. Le chronomètre de lecture s'arrêtera alors.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- QUESTIONS -->
-<section id="quizScreen" class="screen">
-  <div class="container">
     <div class="card">
 
-      <div id="subjectLabel" class="small"></div>
+        <h2 id="readingTitle" class="center"></h2>
 
-      <div class="progress">
-        <div id="progressBar"></div>
-      </div>
+        <div id="readingTimerDisplay" class="timer">
+            15:00
+        </div>
 
-      <div id="questionTimer" class="timer">01:00</div>
+        <div id="readingContent" class="reading-text"></div>
 
-      <div id="questionNumber" class="question-number"></div>
-      <div id="questionText" class="question"></div>
+        <div class="reading-buttons">
 
-      <div id="options" class="options"></div>
+            <button id="skipButton" class="success">
+                PASSER → COMMENCER LES QUESTIONS
+            </button>
 
-      <div id="textButtonContainer" style="display:none;margin-top:18px">
-        <button id="showTextBtn" class="secondary">📖 VOIR LE TEXTE</button>
-      </div>
+        </div>
 
-      <div class="nav">
-        <div></div>
-        <button id="nextBtn">QUESTION SUIVANTE →</button>
-      </div>
+        <p class="small center">
+            Le bouton « Passer » démarre immédiatement les questions.
+        </p>
 
     </div>
-  </div>
+
+</div>
 </section>
 
-<!-- MODAL TEXTE -->
+
+<!-- ========================= TEST ========================= -->
+
+<section id="quiz" class="screen">
+<div class="container">
+
+    <div class="card">
+
+        <div id="subjectDisplay" class="small"></div>
+
+        <div class="progress">
+            <div id="progressBar" class="progress-bar"></div>
+        </div>
+
+        <div id="questionTimerDisplay" class="timer">
+            01:00
+        </div>
+
+        <div id="questionNumber" class="question-number"></div>
+
+        <div id="questionText" class="question"></div>
+
+        <div id="optionsContainer" class="options"></div>
+
+        <div id="textButtonArea" style="display:none;margin-top:18px">
+
+            <button id="showTextButton" class="secondary">
+                📖 VOIR LE TEXTE
+            </button>
+
+        </div>
+
+        <div class="nav">
+
+            <button id="nextButton">
+                QUESTION SUIVANTE →
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ========================= MODAL TEXTE ========================= -->
+
 <div id="textModal" class="modal">
-  <div class="modal-box">
-    <h2 id="modalTitle"></h2>
-    <div id="modalText" class="reading-text"></div>
-    <div class="center">
-      <button id="closeTextBtn">FERMER LE TEXTE</button>
+
+    <div class="modal-content">
+
+        <h2 id="modalTitle"></h2>
+
+        <div id="modalText" class="reading-text"></div>
+
+        <div class="center" style="margin-top:20px">
+
+            <button id="closeModalButton">
+                FERMER
+            </button>
+
+        </div>
+
     </div>
-  </div>
+
 </div>
 
-<!-- RESULTATS -->
-<section id="resultScreen" class="screen">
-  <div class="container">
+
+<!-- ========================= RÉSULTATS ========================= -->
+
+<section id="results" class="screen">
+<div class="container">
+
     <div class="card">
-      <h1 class="center">Résultats</h1>
-      <p id="resultName" class="center"></p>
 
-      <div id="resultScore" class="result-score"></div>
+        <h1 class="center">Résultats</h1>
 
-      <div id="resultSummary" class="info"></div>
+        <p id="resultName" class="center"></p>
 
-      <h2>Correction détaillée</h2>
-      <div id="corrections"></div>
+        <div id="scoreDisplay" class="result-score">
+            0%
+        </div>
 
-      <button id="restartBtn" style="width:100%;margin-top:20px">
-        RECOMMENCER
-      </button>
+        <div id="summary" class="info"></div>
+
+        <h2>Correction</h2>
+
+        <div id="corrections"></div>
+
+        <button
+            id="restartButton"
+            style="width:100%;margin-top:20px"
+        >
+            RECOMMENCER
+        </button>
+
     </div>
-  </div>
+
+</div>
 </section>
 
-<!-- TRICHE -->
-<section id="cheatScreen" class="screen">
-  <div class="container">
+
+<!-- ========================= INVALIDATION ========================= -->
+
+<section id="invalid" class="screen">
+<div class="container">
+
     <div class="card center">
-      <h1>⛔ Tentative invalidée</h1>
-      <p>
-        La page a perdu sa visibilité ou a été quittée pendant le test.
-      </p>
-      <p class="small">
-        Cette simulation utilise une détection côté navigateur.
-      </p>
-      <button onclick="location.reload()">RETOUR À L’ACCUEIL</button>
+
+        <h1>⛔ Tentative invalidée</h1>
+
+        <p>
+            La page a été quittée ou a perdu sa visibilité pendant le test.
+        </p>
+
+        <button onclick="location.reload()">
+            RETOUR À L’ACCUEIL
+        </button>
+
     </div>
-  </div>
+
+</div>
 </section>
+
 
 <script>
-/* ============================================================
-   CONFIGURATION
-============================================================ */
-
-const QUESTIONS = [
 
 /* ============================================================
-   CULTURE GÉNÉRALE — 25
+   TEXTES
 ============================================================ */
+
+const TEXTS = {
+
+    fr:{
+        title:"Texte français — Lecture",
+
+        text:`Le développement durable ne peut être réduit à une simple augmentation de la production ou du revenu. Une économie peut connaître une croissance rapide tout en restant vulnérable si ses institutions sont fragiles, si les compétences de sa population sont insuffisantes ou si elle dépend excessivement d’un nombre limité de ressources.
+
+Les transformations technologiques et l’ouverture des échanges internationaux créent de nouvelles possibilités. Elles facilitent la circulation des connaissances, améliorent certaines méthodes de production et permettent aux entreprises d’accéder à de nouveaux marchés. Cependant, ces transformations peuvent aussi exposer les économies aux variations des prix, aux crises extérieures et aux changements rapides de la demande.
+
+Pour renforcer la résilience, les politiques publiques doivent donc tenir compte de plusieurs facteurs complémentaires : la qualité des institutions, l’éducation, la formation professionnelle, l’innovation, la diversification économique et la protection de l’environnement. Le progrès durable résulte ainsi moins d’un facteur unique que de la combinaison de plusieurs capacités.`
+    },
+
+    en:{
+        title:"English Text — Reading",
+
+        text:`Economic globalization and technological expansion have fundamentally reshaped international trade and economic relations. These transformations create new opportunities by facilitating the movement of knowledge, capital and goods. However, they can also expose developing economies to external volatility.
+
+An economy that depends heavily on a small number of natural resources may experience rapid growth during favorable periods but face serious difficulties when prices fall or external conditions change. For this reason, sustainable development requires more than the exploitation of natural resources.
+
+Strong institutions, investment in human capital, technological innovation and economic diversification can help countries respond to uncertainty. Education and professional training are especially important because they improve the ability of individuals and organizations to adapt to changing circumstances.
+
+Economic progress should therefore be understood as a process involving both opportunities and responsibilities. Long-term resilience depends on the capacity to combine growth with effective institutions, human capital and adaptation.`
+    }
+
+};
+
+
+/* ============================================================
+   QUESTIONS
+============================================================ */
+
+const questions = [
+
+/* ================= CULTURE 1-25 ================= */
 
 {
 s:"Culture générale",
@@ -352,160 +512,177 @@ q:"Quelle conférence internationale de 1884-1885 a fixé les règles européenn
 o:["La conférence de Yalta","La conférence de Berlin","La conférence de Bandung","La conférence de Genève"],
 a:1
 },
+
 {
 s:"Culture générale",
 q:"Quel était le nom de l’État créé personnellement au profit du roi Léopold II avant son annexion par la Belgique en 1908 ?",
 o:["Congo belge","État indépendant du Congo","République du Congo","Katanga indépendant"],
 a:1
 },
+
 {
 s:"Culture générale",
 q:"Quelle appellation officielle la République démocratique du Congo a-t-elle portée de 1971 à 1997 ?",
 o:["République du Zaïre","Congo belge","Congo-Léopoldville","État indépendant du Congo"],
 a:0
 },
+
 {
 s:"Culture générale",
-q:"Quelle ville est le chef-lieu de la province du Haut-Katanga ?",
+q:"Quelle ville est le chef-lieu du Haut-Katanga ?",
 o:["Likasi","Kolwezi","Lubumbashi","Kipushi"],
 a:2
 },
+
 {
 s:"Culture générale",
 q:"Quel est le chef-lieu du Kasaï-Oriental ?",
 o:["Kananga","Mbuji-Mayi","Tshikapa","Kabinda"],
 a:1
 },
+
 {
 s:"Culture générale",
 q:"Mbuji-Mayi était historiquement connue sous quel nom ?",
 o:["Bakwanga","Élisabethville","Luluabourg","Stanleyville"],
 a:0
 },
+
 {
 s:"Culture générale",
 q:"Quel fleuve traverse notamment Kinshasa avant de se jeter dans l’océan Atlantique ?",
 o:["Le Congo","Le Niger","Le Nil","Le Zambèze"],
 a:0
 },
+
 {
 s:"Culture générale",
 q:"Quel organisme international a succédé à la Société des Nations en 1945 ?",
 o:["L’OTAN","L’ONU","L’Union européenne","L’OUA"],
 a:1
 },
+
 {
 s:"Culture générale",
 q:"Quel organe de l’ONU est principalement chargé du maintien de la paix et de la sécurité internationales ?",
 o:["Le Conseil de sécurité","La Cour internationale de Justice","L’UNESCO","Le Conseil économique et social"],
 a:0
 },
+
 {
 s:"Culture générale",
 q:"Quel traité a créé officiellement l’Union européenne ?",
 o:["Traité de Rome","Traité de Maastricht","Traité de Versailles","Traité de Lisbonne"],
 a:1
 },
+
 {
 s:"Culture générale",
 q:"Quelle organisation militaire fut créée en 1949 ?",
 o:["OTAN","OUA","SADC","COMESA"],
 a:0
 },
+
 {
 s:"Culture générale",
 q:"L’Organisation de l’unité africaine a été remplacée par :",
 o:["La SADC","L’Union africaine","La CIRGL","La CEPGL"],
 a:1
 },
+
 {
 s:"Culture générale",
 q:"Quelle organisation régionale concerne particulièrement la région des Grands Lacs ?",
 o:["CIRGL","OPEP","ASEAN","MERCOSUR"],
 a:0
 },
+
 {
 s:"Culture générale",
 q:"Quelle organisation regroupe notamment plusieurs États d’Afrique australe ?",
 o:["SADC","CEDEAO","CEMAC","UMA"],
 a:0
 },
+
 {
 s:"Culture générale",
 q:"Quelle organisation internationale est spécialisée dans l’alimentation et l’agriculture ?",
 o:["FAO","FMI","OIT","OMS"],
 a:0
 },
+
 {
 s:"Culture générale",
-q:"Quelle institution internationale accorde principalement des financements et conseils macroéconomiques aux États membres ?",
+q:"Quelle institution internationale fournit notamment des financements et conseils macroéconomiques aux États membres ?",
 o:["FMI","CPI","UNESCO","OACI"],
 a:0
 },
+
 {
 s:"Culture générale",
-q:"Quel tribunal international juge notamment les personnes accusées des crimes relevant de sa compétence ?",
+q:"Quel tribunal international juge notamment les personnes accusées de crimes relevant de sa compétence ?",
 o:["CPI","FMI","FAO","OMC"],
 a:0
 },
+
 {
 s:"Culture générale",
 q:"Quel est le siège principal de l’ONU ?",
 o:["Genève","New York","Paris","Bruxelles"],
 a:1
 },
+
 {
 s:"Culture générale",
 q:"Quelle organisation a son siège à Paris et œuvre notamment dans les domaines de l’éducation, des sciences et de la culture ?",
 o:["UNESCO","FAO","FMI","OTAN"],
 a:0
 },
+
 {
 s:"Culture générale",
-q:"Quel est le rôle principal de l’Organisation internationale de la Francophonie ?",
-o:["Organiser uniquement des compétitions sportives","Promouvoir la langue française et la coopération entre ses membres","Gérer les monnaies africaines","Diriger l’ONU"],
+q:"Quel est notamment l’un des objectifs de l’Organisation internationale de la Francophonie ?",
+o:["Gérer les monnaies africaines","Promouvoir la langue française et la coopération","Diriger l’ONU","Contrôler les banques centrales"],
 a:1
 },
+
 {
 s:"Culture générale",
 q:"Le prix Nobel de la paix est attribué selon la volonté exprimée par :",
 o:["Alfred Nobel","Albert Einstein","Isaac Newton","Marie Curie"],
 a:0
 },
+
 {
 s:"Culture générale",
-q:"Quel parc national de la RDC est célèbre notamment pour ses gorilles de montagne ?",
-o:["Virunga","Garamba","Upemba","Kahuzi-Biega"],
+q:"Quel parc national de la RDC est notamment célèbre pour ses gorilles de montagne ?",
+o:["Virunga","Garamba","Upemba","Salonga"],
 a:0
 },
+
 {
 s:"Culture générale",
 q:"Quel organisme congolais est chargé de la gestion des aires protégées ?",
 o:["ICCN","CENI","BCECO","RVA"],
 a:0
 },
+
 {
 s:"Culture générale",
-q:"Quel terme signifie qu’un minerai contient principalement du cuivre ou qu’un gisement en est riche ?",
+q:"Quel terme signifie qu’un minerai ou un gisement est riche en cuivre ?",
 o:["Aigre","Cuprifère","Alluvial","Salin"],
 a:1
 },
+
 {
 s:"Culture générale",
-q:"Quel est le chef-lieu de la province du Kongo-Central ?",
-o:["Matadi","Boma","Muanda","Mbanza-Ngungu"],
-a:0
-},
-{
-s:"Culture générale",
-q:"Quel est le chef-lieu de la province du Lualaba ?",
+q:"Quel est le chef-lieu du Lualaba ?",
 o:["Kolwezi","Likasi","Lubumbashi","Kamina"],
 a:0
 },
 
-/* ============================================================
-   FRANÇAIS — 25
-============================================================ */
+
+/* ================= FRANÇAIS 26-50 ================= */
 
 {
 s:"Français",
@@ -513,144 +690,168 @@ q:"Dans « Les élèves attentifs réussissent », quelle est la fonction de « 
 o:["COD","Attribut du sujet","Épithète du nom « élèves »","COI"],
 a:2
 },
+
 {
 s:"Français",
 q:"Dans « Je parle à mon professeur », « à mon professeur » est :",
 o:["COD","COI","COS","Attribut"],
 a:1
 },
+
 {
 s:"Français",
 q:"Dans « Il donne un livre à son frère », « à son frère » est :",
 o:["COD","COI","COS","CCT"],
 a:2
 },
+
 {
 s:"Français",
 q:"Dans « Nous partirons demain », « demain » est :",
 o:["CCT","CCL","CCM","COD"],
 a:0
 },
+
 {
 s:"Français",
 q:"Dans « La fille qui chante est ma sœur », « qui chante » est :",
 o:["Proposition subordonnée relative","Proposition principale","Subordonnée complétive","Subordonnée circonstancielle"],
 a:0
 },
+
 {
 s:"Français",
 q:"Quelle phrase contient une proposition subordonnée circonstancielle de cause ?",
 o:["Je partirai quand tu arriveras.","Je reste parce qu’il pleut.","Je travaille afin de réussir.","Je viens si tu m’appelles."],
 a:1
 },
+
 {
 s:"Français",
 q:"Quelle figure de style associe deux termes contradictoires ?",
 o:["Métaphore","Oxymore","Hyperbole","Métonymie"],
 a:1
 },
+
 {
 s:"Français",
-q:"Quel mot désigne une expression devenue lexicalement habituelle par extension de sens ?",
+q:"Quel procédé consiste à employer un mot au-delà de son sens propre parce qu’il n’existe pas de terme plus approprié ?",
 o:["Catachrèse","Anaphore","Litote","Ellipse"],
 a:0
 },
+
 {
 s:"Français",
 q:"Quel mot est correctement écrit ?",
 o:["Acquérir","Acquerir","Acquérirre","Aquerir"],
 a:0
 },
+
 {
 s:"Français",
-q:"Quelle phrase respecte l’usage traditionnel recommandé ?",
-o:["Au temps pour moi.","Autant pour moi.","Aux temps pour moi.","Au tant pour moi."],
+q:"Quelle forme est traditionnellement recommandée pour reconnaître une erreur ?",
+o:["Au temps pour moi","Autant pour moi","Aux temps pour moi","Au tant pour moi"],
 a:0
 },
+
 {
 s:"Français",
-q:"Quelle forme complète correctement la phrase : « Je voudrais que tu ___ raison. »",
-o:["as","aie","avais","auras"],
+q:"Je voudrais que tu ___ raison.",
+o:["as","aies","avais","auras"],
 a:1
 },
+
 {
 s:"Français",
 q:"Quelle forme est correcte au subjonctif présent ?",
 o:["Il faut que nous venons.","Il faut que nous venions.","Il faut que nous viendrons.","Il faut que nous sommes venus."],
 a:1
 },
+
 {
 s:"Français",
 q:"Quelle forme correspond au plus-que-parfait du subjonctif ?",
 o:["Qu’il eût terminé","Qu’il ait terminé","Qu’il avait terminé","Qu’il termina"],
 a:0
 },
+
 {
 s:"Français",
 q:"Quelle phrase est correctement accordée ?",
 o:["Elles sont arrivé hier.","Elles sont arrivées hier.","Elles ont arrivées hier.","Elles ont arrivé hier."],
 a:1
 },
+
 {
 s:"Français",
 q:"Dans « Les lettres que j’ai écrites », pourquoi « écrites » prend-il le féminin pluriel ?",
 o:["Parce que le sujet est féminin pluriel","Parce que le COD placé avant est « que », représentant « lettres »","Parce que tout participe passé est féminin","Parce que le verbe est pronominal"],
 a:1
 },
+
 {
 s:"Français",
-q:"Quelle phrase est correctement construite avec un verbe pronominal ?",
+q:"Quelle phrase est correcte ?",
 o:["Elles se sont lavé les mains.","Elles se sont lavées les mains.","Elles se sont lavés les mains.","Elles se sont laver les mains."],
 a:0
 },
+
 {
 s:"Français",
 q:"Quel est le pluriel correct de « coffre-fort » ?",
 o:["Coffres-forts","Coffre-forts","Coffres-fort","Coffre-fort"],
 a:0
 },
+
 {
 s:"Français",
 q:"Quel est le pluriel correct de « arc-en-ciel » ?",
 o:["Arcs-en-ciel","Arc-en-ciels","Arcs-en-ciels","Arc-en-ciel"],
 a:0
 },
+
 {
 s:"Français",
-q:"Quelle couleur composée reste généralement invariable ?",
+q:"Quelle forme est correcte ?",
 o:["Des robes bleu clair","Des robes bleues claires","Des robes bleus clairs","Des robes bleu-claires"],
 a:0
 },
+
 {
 s:"Français",
 q:"Quelle expression signifie « être confronté à quelqu’un ou à quelque chose » ?",
 o:["Avoir affaire à","Avoir à faire à","Avoir affaire de","Faire affaire de"],
 a:0
 },
+
 {
 s:"Français",
 q:"Dans « Cette solution est la meilleure », « meilleure » est :",
 o:["Épithète","Attribut du sujet","COD","COI"],
 a:1
 },
+
 {
 s:"Français",
 q:"Quel écrivain est l’auteur de « Une si longue lettre » ?",
 o:["Mariama Bâ","Sembène Ousmane","Camara Laye","Ahmadou Kourouma"],
 a:0
 },
+
 {
 s:"Français",
 q:"Quel écrivain est l’auteur de « L’Enfant noir » ?",
 o:["Camara Laye","Mongo Beti","Senghor","Molière"],
 a:0
 },
+
 {
 s:"Français",
-q:"Quel mot est le paronyme correct de « collision » lorsqu’on parle d’une collaboration ou d’une connivence ?",
+q:"Quel est le paronyme correct de « collision » lorsqu’on parle d’une entente secrète ou frauduleuse ?",
 o:["Collusion","Colusion","Collisionner","Collaboration"],
 a:0
 },
+
 {
 s:"Français",
 q:"Lequel est un palindrome ?",
@@ -658,17 +859,17 @@ o:["Kayak","Maison","École","Livre"],
 a:0
 },
 
-/* ============================================================
-   TEXTE FRANÇAIS + 5 QUESTIONS
-============================================================ */
+
+/* ================= TEXTE FRANÇAIS ================= */
 
 {
 s:"Français",
 reading:"fr",
-q:"Selon le texte, quel facteur est présenté comme indispensable au développement durable ?",
+q:"Selon le texte, quel facteur est indispensable au développement durable ?",
 o:["La disparition des institutions","L’investissement dans l’éducation et les compétences","La suppression du commerce","L’isolement économique"],
 a:1
 },
+
 {
 s:"Français",
 reading:"fr",
@@ -676,13 +877,15 @@ q:"Le texte oppose principalement :",
 o:["La tradition et la religion","La croissance économique et les conditions institutionnelles de sa durabilité","Les sciences et les arts","Les villes et les campagnes"],
 a:1
 },
+
 {
 s:"Français",
 reading:"fr",
 q:"Dans le texte, le progrès technologique est présenté comme :",
-o:["Uniquement bénéfique","Uniquement nuisible","Une transformation produisant à la fois des possibilités et des défis","Sans rapport avec l’économie"],
+o:["Uniquement bénéfique","Uniquement nuisible","Une transformation produisant des possibilités et des défis","Sans rapport avec l’économie"],
 a:2
 },
+
 {
 s:"Français",
 reading:"fr",
@@ -690,6 +893,7 @@ q:"Quelle idée résume le mieux le texte ?",
 o:["Le développement dépend exclusivement des ressources naturelles.","Le développement durable exige plusieurs facteurs complémentaires.","La technologie doit être supprimée.","Les institutions n’ont aucune influence économique."],
 a:1
 },
+
 {
 s:"Français",
 reading:"fr",
@@ -698,9 +902,8 @@ o:["La capacité à résister et à s’adapter aux difficultés","La richesse i
 a:0
 },
 
-/* ============================================================
-   ENGLISH — 25
-============================================================ */
+
+/* ================= ENGLISH 51-75 ================= */
 
 {
 s:"English",
@@ -708,144 +911,168 @@ q:"Choose the correct sentence.",
 o:["The student which won is here.","The student who won is here.","The student whom won is here.","The student whose won is here."],
 a:1
 },
+
 {
 s:"English",
 q:"If water reaches 100°C, it ___.",
 o:["boils","will boil","would boil","boiled"],
 a:0
 },
+
 {
 s:"English",
 q:"If I had known the truth, I ___ differently.",
 o:["act","would have acted","will act","would act"],
 a:1
 },
+
 {
 s:"English",
 q:"If she had studied harder, she would be at university now. This is an example of:",
 o:["Zero conditional","First conditional","Second conditional","Mixed conditional"],
 a:3
 },
+
 {
 s:"English",
 q:"Hardly ___ the meeting started when the lights went out.",
 o:["had","has","did","was"],
 a:0
 },
+
 {
 s:"English",
 q:"Neither the teacher nor the students ___ ready.",
 o:["is","are","was","be"],
 a:1
 },
+
 {
 s:"English",
 q:"You have finished the work, ___?",
 o:["haven’t you","have you","didn’t you","aren’t you"],
 a:0
 },
+
 {
 s:"English",
 q:"She ___ in this company since 2022.",
 o:["works","worked","has worked","is working"],
 a:2
 },
+
 {
 s:"English",
 q:"I am not used to ___ so early.",
 o:["wake up","waking up","woke up","have wake up"],
 a:1
 },
+
 {
 s:"English",
 q:"He used to ___ football every Sunday.",
 o:["playing","played","play","plays"],
 a:2
 },
+
 {
 s:"English",
 q:"Please explain the problem ___ me.",
 o:["to","at","for","with"],
 a:0
 },
+
 {
 s:"English",
 q:"She stopped ___ because she was tired.",
 o:["to work","working","work","worked"],
 a:1
 },
+
 {
 s:"English",
 q:"She stopped ___ some water before continuing.",
 o:["drinking","to drink","drink","drank"],
 a:1
 },
+
 {
 s:"English",
 q:"I remember ___ him at school when I was young.",
 o:["meet","to meet","meeting","met"],
 a:2
 },
+
 {
 s:"English",
 q:"I remembered ___ the door before leaving.",
 o:["locking","to lock","lock","locked"],
 a:1
 },
+
 {
 s:"English",
 q:"The report ___ by the manager yesterday.",
 o:["was written","wrote","is writing","has write"],
 a:0
 },
+
 {
 s:"English",
 q:"She said, “I am tired.” Reported speech:",
 o:["She said that she is tired.","She said that she was tired.","She says that she was tired.","She said that I was tired."],
 a:1
 },
+
 {
 s:"English",
 q:"Choose the correct expression.",
 o:["a little students","a few students","few water","a few information"],
 a:1
 },
+
 {
 s:"English",
 q:"There is ___ information available.",
 o:["a few","few","a little","many"],
 a:2
 },
+
 {
 s:"English",
 q:"A perspicacious person is someone who is:",
 o:["Slow to understand","Quick to understand and perceptive","Always angry","Physically strong"],
 a:1
 },
+
 {
 s:"English",
 q:"Something ephemeral is:",
 o:["Permanent","Very long-lasting","Short-lived","Impossible"],
 a:2
 },
+
 {
 s:"English",
 q:"A philanthropist is someone who:",
 o:["Supports charitable or humanitarian causes","Hates education","Avoids society","Studies only physics"],
 a:0
 },
+
 {
 s:"English",
 q:"To bite the bullet means to:",
 o:["Avoid responsibility","Face a difficult situation with determination","Run away","Tell a joke"],
 a:1
 },
+
 {
 s:"English",
 q:"To break the ice means to:",
 o:["Start a friendly interaction and reduce tension","Destroy something","End a friendship","Become angry"],
 a:0
 },
+
 {
 s:"English",
 q:"Which sentence is correct?",
@@ -853,9 +1080,8 @@ o:["He explained me the problem.","He explained the problem to me.","He explaine
 a:1
 },
 
-/* ============================================================
-   TEXTE ANGLAIS + 5 QUESTIONS
-============================================================ */
+
+/* ================= TEXTE ANGLAIS ================= */
 
 {
 s:"English",
@@ -864,6 +1090,7 @@ q:"According to the text, economic progress can create:",
 o:["Only advantages","Only disadvantages","Both opportunities and vulnerabilities","No changes"],
 a:2
 },
+
 {
 s:"English",
 reading:"en",
@@ -871,6 +1098,7 @@ q:"The text suggests that sustainable development requires:",
 o:["Only natural resources","Strong institutions and investment in human capital","Less education","Economic isolation"],
 a:1
 },
+
 {
 s:"English",
 reading:"en",
@@ -878,6 +1106,7 @@ q:"What does “volatility” most nearly mean in the text?",
 o:["Stability","Rapid and unpredictable change","Complete poverty","Permanent growth"],
 a:1
 },
+
 {
 s:"English",
 reading:"en",
@@ -885,6 +1114,7 @@ q:"What is the main idea of the passage?",
 o:["Natural resources are useless.","Economic transformation creates both opportunities and challenges.","Technology must be rejected.","International trade should stop."],
 a:1
 },
+
 {
 s:"English",
 reading:"en",
@@ -893,9 +1123,8 @@ o:["Weak","Fragile","Strong and effective","Temporary"],
 a:2
 },
 
-/* ============================================================
-   MATHÉMATIQUES — 25
-============================================================ */
+
+/* ================= MATHS 76-100 ================= */
 
 {
 s:"Mathématiques",
@@ -903,783 +1132,979 @@ q:"Pour quelle valeur de x l’expression 1/(x−3) n’est-elle pas définie ?"
 o:["0","1","3","−3"],
 a:2
 },
+
 {
 s:"Mathématiques",
 q:"Simplifier : (x²−9)/(x−3), pour x≠3.",
 o:["x−3","x+3","x²+3","3x"],
 a:1
 },
+
 {
 s:"Mathématiques",
 q:"Résoudre 2x−5=9.",
 o:["x=2","x=5","x=7","x=9"],
 a:2
 },
+
 {
 s:"Mathématiques",
 q:"Si f(x)=2x+1 et g(x)=x², alors (f∘g)(2) vaut :",
 o:["5","8","9","10"],
 a:2
 },
+
 {
 s:"Mathématiques",
 q:"La fonction f(x)=x² est :",
 o:["Impaire","Paire","Ni paire ni impaire","Constante"],
 a:1
 },
+
 {
 s:"Mathématiques",
 q:"Quelle est la limite de (x²−1)/(x−1) lorsque x tend vers 1 ?",
 o:["0","1","2","∞"],
 a:2
 },
+
 {
 s:"Mathématiques",
 q:"Quelle forme indéterminée obtient-on directement pour (x²−1)/(x−1) lorsque x→1 ?",
 o:["0/0","∞/∞","∞−∞","0×∞"],
 a:0
 },
+
 {
 s:"Mathématiques",
 q:"Quelle est la limite de 1/(x−2) lorsque x tend vers 2 par valeurs supérieures ?",
 o:["−∞","0","+∞","1"],
 a:2
 },
+
 {
 s:"Mathématiques",
-q:"La droite x=2 est une asymptote de la fonction f(x)=1/(x−2). Elle est :",
+q:"La droite x=2 est une asymptote de f(x)=1/(x−2). Elle est :",
 o:["Horizontale","Verticale","Oblique","Aucune"],
 a:1
 },
+
 {
 s:"Mathématiques",
 q:"La droite y=0 est une asymptote de f(x)=1/x lorsque x tend vers :",
 o:["0","1","+∞ et −∞","2 uniquement"],
 a:2
 },
+
 {
 s:"Mathématiques",
 q:"Pour f(x)=x+1+1/x, l’asymptote oblique lorsque |x| tend vers l’infini est :",
 o:["y=x","y=x+1","x=1","y=1"],
 a:1
 },
+
 {
 s:"Mathématiques",
 q:"Si log10(1000)=x, alors x vaut :",
 o:["1","2","3","10"],
 a:2
 },
+
 {
 s:"Mathématiques",
 q:"Résoudre log10(x)=2.",
 o:["x=2","x=10","x=100","x=1000"],
 a:2
 },
+
 {
 s:"Mathématiques",
 q:"Le domaine de définition de ln(x−2) est :",
 o:["x≥2","x>2","x<2","Tous les réels"],
 a:1
 },
+
 {
 s:"Mathématiques",
 q:"Si P(x)=x²−5x+6, la somme des racines vaut :",
 o:["−6","5","6","−5"],
 a:1
 },
+
 {
 s:"Mathématiques",
 q:"Les racines de x²−5x+6=0 sont :",
 o:["1 et 6","2 et 3","−2 et −3","0 et 6"],
 a:1
 },
+
 {
 s:"Mathématiques",
 q:"La dérivée de f(x)=x³−2x est :",
 o:["3x²−2","x²−2","3x−2","x³−2"],
 a:0
 },
+
 {
 s:"Mathématiques",
 q:"La dérivée de f(x)=(2x+1)³ est :",
 o:["3(2x+1)²","6(2x+1)²","2(2x+1)³","6(2x+1)"],
 a:1
 },
+
 {
 s:"Mathématiques",
 q:"Si f'(x)>0 sur un intervalle, alors f est :",
 o:["Décroissante","Constante","Croissante","Paire"],
 a:2
 },
+
 {
 s:"Mathématiques",
 q:"Une fonction continue et strictement monotone sur un intervalle est :",
 o:["Nécessairement injective","Nécessairement constante","Nécessairement périodique","Jamais bijective"],
 a:0
 },
+
 {
 s:"Mathématiques",
 q:"Si f:A→B est à la fois injective et surjective, elle est :",
 o:["Paire","Bijective","Constante","Impaire"],
 a:1
 },
+
 {
 s:"Mathématiques",
 q:"Pour une fonction bijective f, sa fonction réciproque est notée :",
 o:["f+1","1/f","f⁻¹","−f"],
 a:2
 },
+
 {
 s:"Mathématiques",
 q:"Si f(x)=x+2 et g(x)=3x, alors (g∘f)(x) vaut :",
 o:["3x+2","3x+6","x+6","3x−6"],
 a:1
 },
+
 {
 s:"Mathématiques",
 q:"Une relation R est symétrique si :",
 o:["aRb implique bRa","aRb implique aRa","aRb implique jamais bRa","aRa implique bRb"],
 a:0
 },
+
 {
 s:"Mathématiques",
 q:"Dans un triangle rectangle, le carré de l’hypoténuse est égal :",
 o:["À la somme des carrés des deux autres côtés","À leur produit","À leur différence","Au double de leur somme"],
 a:0
 }
+
 ];
 
+
 /* ============================================================
-   TEXTES
+   VÉRIFICATION
 ============================================================ */
 
-const TEXTS = {
-fr:{
-title:"Texte français — Lecture",
-text:`
-Le développement durable ne peut être réduit à une simple augmentation de la
-production ou du revenu. Une économie peut connaître une croissance rapide tout
-en restant vulnérable si ses institutions sont fragiles, si les compétences de sa
-population sont insuffisantes ou si elle dépend excessivement d'un nombre limité
-de ressources.
+console.log("Nombre total de questions :",questions.length);
 
-Les transformations technologiques et l'ouverture des échanges internationaux
-créent de nouvelles possibilités. Elles facilitent la circulation des connaissances,
-améliorent certaines méthodes de production et permettent aux entreprises
-d'accéder à de nouveaux marchés. Cependant, ces transformations peuvent aussi
-exposer les économies aux variations des prix, aux crises extérieures et aux
-changements rapides de la demande.
 
-Pour renforcer la résilience, les politiques publiques doivent donc tenir compte
-de plusieurs facteurs complémentaires : la qualité des institutions, l'éducation,
-la formation professionnelle, l'innovation, la diversification économique et la
-protection de l'environnement. Le progrès durable résulte ainsi moins d'un facteur
-unique que de la combinaison de plusieurs capacités.
-`
-},
-en:{
-title:"English Text — Reading",
-text:`
-Economic globalization and technological expansion have fundamentally reshaped
-international trade and economic relations. These transformations create new
-opportunities by facilitating the movement of knowledge, capital and goods.
-However, they can also expose developing economies to external volatility.
+/* ============================================================
+   VARIABLES
+============================================================ */
 
-An economy that depends heavily on a small number of natural resources may
-experience rapid growth during favorable periods but face serious difficulties when
-prices fall or external conditions change. For this reason, sustainable development
-requires more than the exploitation of natural resources.
+let currentQuestion = 0;
 
-Strong institutions, investment in human capital, technological innovation and
-economic diversification can help countries respond to uncertainty. Education
-and professional training are especially important because they improve the
-ability of individuals and organizations to adapt to changing circumstances.
+let userAnswers = [];
 
-Economic progress should therefore be understood as a process involving both
-opportunities and responsibilities. Long-term resilience depends on the capacity
-to combine growth with effective institutions, human capital and adaptation.
-`
-}
+let participantName = "";
+
+let questionInterval = null;
+let readingInterval = null;
+
+let questionSeconds = 60;
+let readingSeconds = 900;
+
+let readingCompleted = {
+    fr:false,
+    en:false
 };
 
+let testActive = false;
+let invalidated = false;
+
+
 /* ============================================================
-   ÉTAT DU TEST
+   ÉLÉMENTS HTML
 ============================================================ */
 
-let participant="";
-let current=0;
-let answers=Array(QUESTIONS.length).fill(null);
-let questionTimer=null;
-let readingTimer=null;
-let questionSeconds=60;
-let readingSeconds=900;
-let readingDone={fr:false,en:false};
-let testRunning=false;
-let invalidated=false;
+const homeScreen =
+    document.getElementById("home");
+
+const readingScreen =
+    document.getElementById("reading");
+
+const quizScreen =
+    document.getElementById("quiz");
+
+const resultsScreen =
+    document.getElementById("results");
+
+const invalidScreen =
+    document.getElementById("invalid");
+
+const nameInput =
+    document.getElementById("nameInput");
+
+const startButton =
+    document.getElementById("startButton");
+
+const skipButton =
+    document.getElementById("skipButton");
+
+const readingTitle =
+    document.getElementById("readingTitle");
+
+const readingContent =
+    document.getElementById("readingContent");
+
+const readingTimerDisplay =
+    document.getElementById("readingTimerDisplay");
+
+const questionTimerDisplay =
+    document.getElementById("questionTimerDisplay");
+
+const subjectDisplay =
+    document.getElementById("subjectDisplay");
+
+const progressBar =
+    document.getElementById("progressBar");
+
+const questionNumber =
+    document.getElementById("questionNumber");
+
+const questionText =
+    document.getElementById("questionText");
+
+const optionsContainer =
+    document.getElementById("optionsContainer");
+
+const nextButton =
+    document.getElementById("nextButton");
+
+const textButtonArea =
+    document.getElementById("textButtonArea");
+
+const showTextButton =
+    document.getElementById("showTextButton");
+
+const textModal =
+    document.getElementById("textModal");
+
+const modalTitle =
+    document.getElementById("modalTitle");
+
+const modalText =
+    document.getElementById("modalText");
+
+const closeModalButton =
+    document.getElementById("closeModalButton");
+
 
 /* ============================================================
-   ÉLÉMENTS
-============================================================ */
-
-const homeScreen=document.getElementById("homeScreen");
-const readingScreen=document.getElementById("readingScreen");
-const quizScreen=document.getElementById("quizScreen");
-const resultScreen=document.getElementById("resultScreen");
-const cheatScreen=document.getElementById("cheatScreen");
-
-const participantName=document.getElementById("participantName");
-const startBtn=document.getElementById("startBtn");
-const skipReading=document.getElementById("skipReading");
-
-const readingTitle=document.getElementById("readingTitle");
-const readingText=document.getElementById("readingText");
-const readingTimer=document.getElementById("readingTimer");
-
-const questionTimer=document.getElementById("questionTimer");
-const questionNumber=document.getElementById("questionNumber");
-const questionText=document.getElementById("questionText");
-const options=document.getElementById("options");
-const nextBtn=document.getElementById("nextBtn");
-const subjectLabel=document.getElementById("subjectLabel");
-const progressBar=document.getElementById("progressBar");
-
-const textButtonContainer=document.getElementById("textButtonContainer");
-const showTextBtn=document.getElementById("showTextBtn");
-const textModal=document.getElementById("textModal");
-const modalTitle=document.getElementById("modalTitle");
-const modalText=document.getElementById("modalText");
-const closeTextBtn=document.getElementById("closeTextBtn");
-
-/* ============================================================
-   UTILITAIRES
+   AFFICHER UN ÉCRAN
 ============================================================ */
 
 function showScreen(screen){
-  [homeScreen,readingScreen,quizScreen,resultScreen,cheatScreen]
-    .forEach(s=>s.classList.remove("active"));
-  screen.classList.add("active");
+
+    homeScreen.classList.remove("active");
+    readingScreen.classList.remove("active");
+    quizScreen.classList.remove("active");
+    resultsScreen.classList.remove("active");
+    invalidScreen.classList.remove("active");
+
+    screen.classList.add("active");
 }
 
-function formatTime(sec){
-  const m=Math.floor(sec/60).toString().padStart(2,"0");
-  const s=(sec%60).toString().padStart(2,"0");
-  return `${m}:${s}`;
+
+/* ============================================================
+   FORMAT TIMER
+============================================================ */
+
+function formatTime(seconds){
+
+    const minutes =
+        Math.floor(seconds / 60)
+        .toString()
+        .padStart(2,"0");
+
+    const secs =
+        (seconds % 60)
+        .toString()
+        .padStart(2,"0");
+
+    return minutes + ":" + secs;
 }
+
+
+/* ============================================================
+   ARRÊTER LES TIMERS
+============================================================ */
 
 function stopQuestionTimer(){
-  if(questionTimer){
-    clearInterval(questionTimer);
-    questionTimer=null;
-  }
+
+    if(questionInterval !== null){
+
+        clearInterval(questionInterval);
+
+        questionInterval = null;
+    }
 }
+
 
 function stopReadingTimer(){
-  if(readingTimer){
-    clearInterval(readingTimer);
-    readingTimer=null;
-  }
+
+    if(readingInterval !== null){
+
+        clearInterval(readingInterval);
+
+        readingInterval = null;
+    }
 }
 
+
 /* ============================================================
-   DÉMARRAGE
+   COMMENCER LE TEST
 ============================================================ */
 
-startBtn.addEventListener("click",()=>{
-  participant=participantName.value.trim();
+startButton.addEventListener("click",function(){
 
-  if(!participant){
-    alert("Entre ton nom complet avant de commencer.");
-    participantName.focus();
-    return;
-  }
+    const name =
+        nameInput.value.trim();
 
-  if(QUESTIONS.length!==100){
-    alert("Erreur : le test ne contient pas exactement 100 questions.");
-    return;
-  }
+    if(name === ""){
 
-  current=0;
-  answers=Array(100).fill(null);
-  readingDone={fr:false,en:false};
-  invalidated=false;
-  testRunning=true;
+        alert("Entre ton nom complet avant de commencer.");
 
-  requestFullscreenSafe();
+        nameInput.focus();
 
-  startQuestion();
+        return;
+    }
+
+    participantName = name;
+
+    currentQuestion = 0;
+
+    userAnswers =
+        new Array(questions.length).fill(null);
+
+    readingCompleted = {
+        fr:false,
+        en:false
+    };
+
+    invalidated = false;
+
+    testActive = true;
+
+    showQuestionOrReading();
+
 });
 
+
 /* ============================================================
-   FULLSCREEN
+   QUESTION OU LECTURE ?
 ============================================================ */
 
-function requestFullscreenSafe(){
-  try{
-    if(document.documentElement.requestFullscreen){
-      document.documentElement.requestFullscreen().catch(()=>{});
+function showQuestionOrReading(){
+
+    if(currentQuestion >= questions.length){
+
+        finishTest();
+
+        return;
     }
-  }catch(e){}
-}
 
-/* ============================================================
-   DÉMARRER UNE QUESTION
-============================================================ */
+    const q =
+        questions[currentQuestion];
 
-function startQuestion(){
+    if(
+        q.reading &&
+        readingCompleted[q.reading] === false
+    ){
 
-  if(current>=QUESTIONS.length){
-    finishTest();
-    return;
-  }
+        startReading(q.reading);
 
-  const q=QUESTIONS[current];
-
-  /*
-    IMPORTANT :
-    Le texte apparaît une seule fois avant les premières questions
-    françaises et une seule fois avant les premières questions anglaises.
-  */
-
-  if(q.reading && !readingDone[q.reading]){
-    openReading(q.reading);
-    return;
-  }
-
-  renderQuestion();
-}
-
-/* ============================================================
-   ÉCRAN DE LECTURE
-============================================================ */
-
-function openReading(type){
-
-  stopQuestionTimer();
-  stopReadingTimer();
-
-  const text=TEXTS[type];
-
-  readingTitle.textContent=text.title;
-  readingText.textContent=text.text;
-
-  readingSeconds=900;
-  readingTimer.textContent=formatTime(readingSeconds);
-
-  showScreen(readingScreen);
-
-  readingTimer=setInterval(()=>{
-    readingSeconds--;
-
-    readingTimerElUpdate();
-
-    if(readingSeconds<=0){
-      stopReadingTimer();
-      readingDone[type]=true;
-
-      /*
-        Le passage automatique est volontaire :
-        lorsque les 15 minutes sont terminées, les questions commencent.
-      */
-      renderQuestion();
+        return;
     }
-  },1000);
+
+    displayQuestion();
 }
 
-function readingTimerElUpdate(){
-  readingTimer.textContent=formatTime(Math.max(0,readingSeconds));
+
+/* ============================================================
+   DÉMARRER LA LECTURE
+============================================================ */
+
+function startReading(type){
+
+    stopQuestionTimer();
+
+    stopReadingTimer();
+
+    const text =
+        TEXTS[type];
+
+    readingTitle.textContent =
+        text.title;
+
+    readingContent.textContent =
+        text.text;
+
+    readingSeconds = 900;
+
+    readingTimerDisplay.textContent =
+        formatTime(readingSeconds);
+
+    showScreen(readingScreen);
+
+    readingInterval =
+        setInterval(function(){
+
+            readingSeconds--;
+
+            readingTimerDisplay.textContent =
+                formatTime(readingSeconds);
+
+            if(readingSeconds <= 0){
+
+                stopReadingTimer();
+
+                readingCompleted[type] = true;
+
+                displayQuestion();
+            }
+
+        },1000);
 }
 
-/*
-  CORRECTION DU BOUTON PASSER :
-  - arrêt immédiat du timer de lecture
-  - mémorisation du texte comme déjà passé
-  - affichage immédiat de la question
-  - aucun délai
-*/
-skipReading.addEventListener("click",()=>{
 
-  const q=QUESTIONS[current];
+/* ============================================================
+   BOUTON PASSER
+============================================================ */
 
-  if(!q.reading){
-    renderQuestion();
-    return;
-  }
+skipButton.addEventListener("click",function(){
 
-  stopReadingTimer();
+    const q =
+        questions[currentQuestion];
 
-  readingDone[q.reading]=true;
+    stopReadingTimer();
 
-  /*
-    On NE modifie PAS current :
-    la première question liée au texte reste la question courante.
-  */
-  renderQuestion();
+    if(q.reading){
+
+        readingCompleted[q.reading] = true;
+    }
+
+    /*
+      IMPORTANT :
+      currentQuestion ne change PAS.
+      On affiche immédiatement la première question
+      du texte.
+    */
+
+    displayQuestion();
+
 });
 
+
 /* ============================================================
-   AFFICHER UNE QUESTION
+   AFFICHER QUESTION
 ============================================================ */
 
-function renderQuestion(){
+function displayQuestion(){
 
-  stopReadingTimer();
-  stopQuestionTimer();
+    stopReadingTimer();
 
-  const q=QUESTIONS[current];
+    stopQuestionTimer();
 
-  showScreen(quizScreen);
+    const q =
+        questions[currentQuestion];
 
-  subjectLabel.textContent=q.s;
-  questionNumber.textContent=`Question ${current+1} / ${QUESTIONS.length}`;
-  questionText.textContent=q.q;
+    showScreen(quizScreen);
 
-  progressBar.style.width=((current+1)/QUESTIONS.length*100)+"%";
+    subjectDisplay.textContent =
+        q.s;
 
-  options.innerHTML="";
+    questionNumber.textContent =
+        "Question " +
+        (currentQuestion + 1) +
+        " / " +
+        questions.length;
 
-  q.o.forEach((choice,index)=>{
-    const btn=document.createElement("button");
-    btn.className="option";
-    btn.textContent=String.fromCharCode(65+index)+". "+choice;
+    questionText.textContent =
+        q.q;
 
-    if(answers[current]===index){
-      btn.classList.add("selected");
-    }
+    progressBar.style.width =
+        ((currentQuestion + 1) / questions.length * 100) + "%";
 
-    btn.addEventListener("click",()=>{
-      answers[current]=index;
+    optionsContainer.innerHTML = "";
 
-      document.querySelectorAll(".option").forEach(b=>{
-        b.classList.remove("selected");
-      });
+    q.o.forEach(function(option,index){
 
-      btn.classList.add("selected");
+        const button =
+            document.createElement("button");
+
+        button.className = "option";
+
+        button.textContent =
+            String.fromCharCode(65 + index) +
+            ". " +
+            option;
+
+        if(userAnswers[currentQuestion] === index){
+
+            button.classList.add("selected");
+        }
+
+        button.addEventListener("click",function(){
+
+            userAnswers[currentQuestion] =
+                index;
+
+            const all =
+                optionsContainer.querySelectorAll(".option");
+
+            all.forEach(function(btn){
+
+                btn.classList.remove("selected");
+
+            });
+
+            button.classList.add("selected");
+
+        });
+
+        optionsContainer.appendChild(button);
+
     });
 
-    options.appendChild(btn);
-  });
 
-  /*
-    Le bouton "Voir le texte" n'existe que pour les questions
-    réellement liées à un texte.
-  */
-  if(q.reading){
-    textButtonContainer.style.display="block";
-  }else{
-    textButtonContainer.style.display="none";
-  }
+    if(q.reading){
 
-  if(current===QUESTIONS.length-1){
-    nextBtn.textContent="TERMINER LE TEST";
-  }else{
-    nextBtn.textContent="QUESTION SUIVANTE →";
-  }
+        textButtonArea.style.display =
+            "block";
 
-  startQuestionCountdown();
-}
+    }else{
 
-/* ============================================================
-   CHRONOMÈTRE : 1 MINUTE PAR QUESTION
-============================================================ */
-
-function startQuestionCountdown(){
-
-  stopQuestionTimer();
-
-  questionSeconds=60;
-  questionTimer.textContent=formatTime(questionSeconds);
-
-  questionTimer=setInterval(()=>{
-
-    questionSeconds--;
-
-    questionTimer.textContent=formatTime(questionSeconds);
-
-    if(questionSeconds<=0){
-      stopQuestionTimer();
-
-      /*
-        Une question passée est définitivement passée.
-        Le participant ne revient pas en arrière.
-      */
-      goNextQuestion();
+        textButtonArea.style.display =
+            "none";
     }
 
-  },1000);
+
+    if(currentQuestion === questions.length - 1){
+
+        nextButton.textContent =
+            "TERMINER LE TEST";
+
+    }else{
+
+        nextButton.textContent =
+            "QUESTION SUIVANTE →";
+    }
+
+
+    startQuestionTimer();
+
 }
+
+
+/* ============================================================
+   TIMER QUESTION
+============================================================ */
+
+function startQuestionTimer(){
+
+    stopQuestionTimer();
+
+    questionSeconds = 60;
+
+    questionTimerDisplay.textContent =
+        formatTime(questionSeconds);
+
+    questionInterval =
+        setInterval(function(){
+
+            questionSeconds--;
+
+            questionTimerDisplay.textContent =
+                formatTime(questionSeconds);
+
+            if(questionSeconds <= 0){
+
+                stopQuestionTimer();
+
+                nextQuestion();
+
+            }
+
+        },1000);
+}
+
 
 /* ============================================================
    QUESTION SUIVANTE
 ============================================================ */
 
-nextBtn.addEventListener("click",()=>{
-  goNextQuestion();
+nextButton.addEventListener("click",function(){
+
+    nextQuestion();
+
 });
 
-function goNextQuestion(){
 
-  stopQuestionTimer();
+function nextQuestion(){
 
-  if(current<QUESTIONS.length-1){
+    stopQuestionTimer();
 
-    current++;
+    if(currentQuestion <
+       questions.length - 1){
 
-    startQuestion();
+        currentQuestion++;
 
-  }else{
+        showQuestionOrReading();
 
-    finishTest();
+    }else{
 
-  }
+        finishTest();
+
+    }
 }
 
+
 /* ============================================================
-   TEXTE ACCESSIBLE PENDANT LA COMPRÉHENSION
+   VOIR LE TEXTE
 ============================================================ */
 
-showTextBtn.addEventListener("click",()=>{
+showTextButton.addEventListener("click",function(){
 
-  const q=QUESTIONS[current];
+    const q =
+        questions[currentQuestion];
 
-  if(!q.reading)return;
+    if(!q.reading){
 
-  const text=TEXTS[q.reading];
+        return;
+    }
 
-  modalTitle.textContent=text.title;
-  modalText.textContent=text.text;
+    const text =
+        TEXTS[q.reading];
 
-  textModal.classList.add("active");
+    modalTitle.textContent =
+        text.title;
 
-  /*
-    IMPORTANT :
-    Le chronomètre de la question continue pendant que le texte est ouvert.
-    Aucun timer n'est arrêté ici.
-  */
+    modalText.textContent =
+        text.text;
+
+    textModal.classList.add("active");
+
 });
 
-closeTextBtn.addEventListener("click",()=>{
-  textModal.classList.remove("active");
-});
-
-textModal.addEventListener("click",(e)=>{
-  if(e.target===textModal){
-    textModal.classList.remove("active");
-  }
-});
 
 /* ============================================================
-   TERMINER ET CALCULER
+   FERMER TEXTE
+============================================================ */
+
+closeModalButton.addEventListener("click",function(){
+
+    textModal.classList.remove("active");
+
+});
+
+
+textModal.addEventListener("click",function(event){
+
+    if(event.target === textModal){
+
+        textModal.classList.remove("active");
+
+    }
+
+});
+
+
+/* ============================================================
+   TERMINER
 ============================================================ */
 
 function finishTest(){
 
-  stopQuestionTimer();
-  stopReadingTimer();
+    stopQuestionTimer();
 
-  testRunning=false;
+    stopReadingTimer();
 
-  let score=0;
+    testActive = false;
 
-  QUESTIONS.forEach((q,i)=>{
-    if(answers[i]===q.a){
-      score++;
-    }
-  });
+    let score = 0;
 
-  const percentage=(score/QUESTIONS.length*100).toFixed(1);
+    questions.forEach(function(q,index){
 
-  document.getElementById("resultName").textContent=
-    `Candidat : ${participant}`;
+        if(userAnswers[index] === q.a){
 
-  document.getElementById("resultScore").textContent=
-    `${percentage}%`;
+            score++;
 
-  document.getElementById("resultSummary").innerHTML=`
-    <b>Score :</b> ${score}/100<br>
-    <b>Pourcentage :</b> ${percentage}%<br>
-    <b>Réponses correctes :</b> ${score}<br>
-    <b>Erreurs :</b> ${100-score}
-  `;
+        }
 
-  const corrections=document.getElementById("corrections");
-  corrections.innerHTML="";
+    });
 
-  QUESTIONS.forEach((q,i)=>{
+    const percentage =
+        (score / questions.length * 100)
+        .toFixed(1);
 
-    const div=document.createElement("div");
+    document.getElementById("resultName")
+        .textContent =
+        "Candidat : " + participantName;
 
-    const isCorrect=answers[i]===q.a;
+    document.getElementById("scoreDisplay")
+        .textContent =
+        percentage + "%";
 
-    div.className="result-item "+(isCorrect?"correct":"wrong");
+    document.getElementById("summary")
+        .innerHTML =
 
-    const selected=
-      answers[i]===null
-      ?"Aucune réponse"
-      :`${String.fromCharCode(65+answers[i])}. ${q.o[answers[i]]}`;
+        "<b>Score :</b> " +
+        score +
+        "/100<br>" +
 
-    const correct=
-      `${String.fromCharCode(65+q.a)}. ${q.o[q.a]}`;
+        "<b>Pourcentage :</b> " +
+        percentage +
+        "%<br>" +
 
-    div.innerHTML=`
-      <b>Question ${i+1}</b> — ${isCorrect?"✓ Correct":"✗ Incorrect"}<br>
-      <span class="small">${q.q}</span><br><br>
-      <b>Ta réponse :</b> ${selected}<br>
-      <b>Bonne réponse :</b> ${correct}
-    `;
+        "<b>Réponses correctes :</b> " +
+        score +
+        "<br>" +
 
-    corrections.appendChild(div);
-  });
+        "<b>Erreurs :</b> " +
+        (questions.length - score);
 
-  showScreen(resultScreen);
 
-  try{
-    if(document.fullscreenElement){
-      document.exitFullscreen().catch(()=>{});
-    }
-  }catch(e){}
+    const corrections =
+        document.getElementById("corrections");
+
+    corrections.innerHTML = "";
+
+
+    questions.forEach(function(q,index){
+
+        const correct =
+            userAnswers[index] === q.a;
+
+        const item =
+            document.createElement("div");
+
+        item.className =
+            "result-item " +
+            (correct ? "correct" : "wrong");
+
+
+        let userAnswer =
+            "Aucune réponse";
+
+        if(userAnswers[index] !== null){
+
+            userAnswer =
+                String.fromCharCode(
+                    65 + userAnswers[index]
+                ) +
+                ". " +
+                q.o[userAnswers[index]];
+        }
+
+
+        const correctAnswer =
+            String.fromCharCode(
+                65 + q.a
+            ) +
+            ". " +
+            q.o[q.a];
+
+
+        item.innerHTML =
+
+            "<b>Question " +
+            (index + 1) +
+            "</b> — " +
+            (correct ? "✓ Correct" : "✗ Incorrect") +
+
+            "<br><br>" +
+
+            "<span class='small'>" +
+            q.q +
+            "</span>" +
+
+            "<br><br>" +
+
+            "<b>Ta réponse :</b> " +
+            userAnswer +
+
+            "<br>" +
+
+            "<b>Bonne réponse :</b> " +
+            correctAnswer;
+
+
+        corrections.appendChild(item);
+
+    });
+
+
+    showScreen(resultsScreen);
+
 }
+
 
 /* ============================================================
    RECOMMENCER
 ============================================================ */
 
-document.getElementById("restartBtn").addEventListener("click",()=>{
-  location.reload();
+document.getElementById("restartButton")
+.addEventListener("click",function(){
+
+    location.reload();
+
 });
+
 
 /* ============================================================
-   ANTI-SORTIE / ANTI-CHANGEMENT D’ONGLET
+   ANTI-SORTIE
 ============================================================ */
 
-/*
-  Détection navigateur :
-  si la page perd sa visibilité pendant une tentative active,
-  l'épreuve est invalidée.
+document.addEventListener(
+    "visibilitychange",
+    function(){
 
-  Cette protection est côté navigateur et ne constitue pas une
-  protection absolue contre une manipulation technique externe.
-*/
+        if(
+            testActive &&
+            document.visibilityState === "hidden"
+        ){
 
-document.addEventListener("visibilitychange",()=>{
+            invalidateTest();
 
-  if(testRunning && document.visibilityState==="hidden"){
-    disqualify();
-  }
+        }
 
-});
+    }
+);
 
-window.addEventListener("blur",()=>{
 
-  if(testRunning){
-    /*
-      On utilise principalement visibilitychange.
-      blur seul peut produire des faux positifs sur certains appareils.
-    */
-  }
-
-});
-
-window.addEventListener("pagehide",()=>{
-
-  if(testRunning){
-    invalidated=true;
-  }
-
-});
-
-window.addEventListener("beforeunload",(e)=>{
-
-  if(testRunning){
-    e.preventDefault();
-    e.returnValue="";
-  }
-
-});
-
-window.addEventListener("popstate",()=>{
-
-  if(testRunning){
-    disqualify();
-  }
-
-});
+/* ============================================================
+   HISTORIQUE NAVIGATEUR
+============================================================ */
 
 history.pushState(null,"",location.href);
 
-function disqualify(){
+window.addEventListener("popstate",function(){
 
-  if(!testRunning || invalidated)return;
+    if(testActive){
 
-  invalidated=true;
-  testRunning=false;
+        invalidateTest();
 
-  stopQuestionTimer();
-  stopReadingTimer();
+    }
 
-  showScreen(cheatScreen);
-}
+});
+
 
 /* ============================================================
-   PROTECTION BASIQUE CONTRE CERTAINES ACTIONS
+   INVALIDATION
 ============================================================ */
 
-document.addEventListener("contextmenu",e=>{
-  if(testRunning)e.preventDefault();
-});
+function invalidateTest(){
 
-document.addEventListener("selectstart",e=>{
-  if(testRunning)e.preventDefault();
-});
+    if(!testActive || invalidated){
 
-document.addEventListener("keydown",e=>{
+        return;
+    }
 
-  if(!testRunning)return;
+    invalidated = true;
 
-  /*
-    Bloque quelques raccourcis classiques pendant l'épreuve.
-  */
+    testActive = false;
 
-  const blocked =
-    e.key==="F12" ||
-    (e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key.toUpperCase())) ||
-    (e.ctrlKey && ["U","S","P"].includes(e.key.toUpperCase()));
+    stopQuestionTimer();
 
-  if(blocked){
-    e.preventDefault();
-  }
+    stopReadingTimer();
 
-});
+    showScreen(invalidScreen);
 
-/* ============================================================
-   VÉRIFICATION AUTOMATIQUE
-============================================================ */
-
-if(QUESTIONS.length!==100){
-  console.error(
-    "ERREUR : le test doit contenir exactement 100 questions. Actuellement :",
-    QUESTIONS.length
-  );
 }
 
-/*
-  Vérification de la répartition :
-*/
-const distribution={};
 
-QUESTIONS.forEach(q=>{
-  distribution[q.s]=(distribution[q.s]||0)+1;
+/* ============================================================
+   PROTECTION CLAVIER
+============================================================ */
+
+document.addEventListener("keydown",function(event){
+
+    if(!testActive){
+
+        return;
+    }
+
+    const key =
+        event.key.toUpperCase();
+
+    if(
+        event.key === "F12" ||
+
+        (event.ctrlKey &&
+         event.shiftKey &&
+         ["I","J","C"].includes(key)) ||
+
+        (event.ctrlKey &&
+         ["U","S","P"].includes(key))
+    ){
+
+        event.preventDefault();
+
+    }
+
 });
 
-console.log("Répartition du test :",distribution);
 
-/*
-  Résultat attendu :
-  Culture générale : 25
-  Français : 25
-  English : 25
-  Mathématiques : 25
-*/
+/* ============================================================
+   MENU CONTEXTUEL
+============================================================ */
+
+document.addEventListener("contextmenu",function(event){
+
+    if(testActive){
+
+        event.preventDefault();
+
+    }
+
+});
+
+
+/* ============================================================
+   VÉRIFICATION
+============================================================ */
+
+if(questions.length !== 100){
+
+    console.error(
+        "ERREUR : le test contient " +
+        questions.length +
+        " questions au lieu de 100."
+    );
+
+}else{
+
+    console.log(
+        "Excellentia RDC : 100 questions chargées correctement."
+    );
+
+}
+
 </script>
 
 </body>
-         </html>
+  </html>
